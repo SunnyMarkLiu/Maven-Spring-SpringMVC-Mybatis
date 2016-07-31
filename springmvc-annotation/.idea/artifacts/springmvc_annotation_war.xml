@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springmvc-annotation:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="springmvc-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="springmvc-annotation:war exploded" />
+    </root>
+  </artifact>
+</component>
