@@ -10,5 +10,5 @@ import org.springframework.ui.Model;
 public interface ProductController {
 
     String productInputPage();
-    String productInput(Product product, Model model);
+    String productInput(String requestParam, String newrequestParam, Product product, Model model);
 }

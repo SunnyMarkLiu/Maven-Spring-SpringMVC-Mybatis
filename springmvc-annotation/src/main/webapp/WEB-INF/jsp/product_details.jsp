@@ -8,7 +8,8 @@
 </head>
 <body>
     <h2>Product Details</h2>
-    Product Name: ${product.name}<br>
-    Product Price: ${product.price}
+    Product Id: ${newproduct.id}<br>
+    Product Name: ${newproduct.name}<br>
+    Product Price: ${newproduct.price}
 </body>
 </html>
