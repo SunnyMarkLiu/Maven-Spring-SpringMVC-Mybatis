@@ -4,6 +4,6 @@
     <title>Items List</title>
 </head>
 <body>
-    {$itemsList.size()}
+${itemsList.size()}
 </body>
 </html>
