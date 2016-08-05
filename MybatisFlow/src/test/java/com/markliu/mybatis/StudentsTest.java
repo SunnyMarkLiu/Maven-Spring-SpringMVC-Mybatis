@@ -5,12 +5,14 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +22,17 @@ import java.util.List;
 public class StudentsTest {
 
     private SqlSession sqlSession;
+
+    static {
+        try {
+            String resource = "config/log4j.properties";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            PropertyConfigurator.configure(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Before
     public void getSqlSession() {
@@ -63,6 +76,19 @@ public class StudentsTest {
           */
         List<Students> studentsList = sqlSession.selectList(statement, "Student");
         System.out.println(studentsList);
+    }
+
+    @Test
+    public void testInsertStudents() {
+        String statement = "com.markliu.mybatis.domain.StudentsMapper.insertStudents";
+        Students students = new Students("MarkLiu", "SunnyMarkLiu@163.com", new Date());
+        sqlSession.insert(statement, students);
+
+        // 提交事物
+        sqlSession.commit();
+
+        // 获取插入数据的主键
+        System.out.println(students.getStud_id());
     }
 
     @After
