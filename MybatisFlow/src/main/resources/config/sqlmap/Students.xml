@@ -43,10 +43,23 @@
             order：指定 SELECT LAST_INSERT_ID() 执行的顺序（相对于insert语句的执行顺序）；
             resultType：指定 SELECT LAST_INSERT_ID() 返回的结果类型；
          -->
+        <!-- 自增主键的返回，使用 LAST_INSERT_ID() 函数
+             非自增主键的返回，使用mysql的uuid()函数生成主键，需要修改表中id字段类型为string，长度设置成35位。
+        -->
         <selectKey keyProperty="stud_id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
 
         INSERT INTO students(stud_id, name, email, dob) VALUES (#{stud_id}, #{name}, #{email}, #{dob})
     </insert>
+
+    <!-- 删除用户 -->
+    <delete id="deleteStudentsById" parameterType="java.lang.Integer">
+        DELETE FROM students WHERE stud_id = #{stud_id}
+    </delete>
+
+    <!-- 删除用户 -->
+    <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.Students">
+        UPDATE students SET email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
+    </delete>
 </mapper>

@@ -23,6 +23,7 @@ public class StudentsTest {
 
     private SqlSession sqlSession;
 
+    // 加载 log4j 配置文件
     static {
         try {
             String resource = "config/log4j.properties";
@@ -89,6 +90,34 @@ public class StudentsTest {
 
         // 获取插入数据的主键
         System.out.println(students.getStud_id());
+    }
+
+    @Test
+    public void testDeleteStudentsById() {
+        String statement = "com.markliu.mybatis.domain.StudentsMapper.deleteStudentsById";
+        int result = sqlSession.delete(statement, 1);
+
+        // 提交事物
+        sqlSession.commit();
+        System.out.println("影响的行数：" + result);
+    }
+
+    @Test
+    public void testUpdateStudents() {
+        String statement = "com.markliu.mybatis.domain.StudentsMapper.getStudentsById";
+        int id = 2;
+        Students students = sqlSession.selectOne(statement, id);
+        System.out.println(students.toString());
+
+        students.setEmail("1291833546@qq.com");
+        students.setDob(new Date());
+
+        statement = "com.markliu.mybatis.domain.StudentsMapper.updateStudents";
+        int result = sqlSession.update(statement, students);
+        // 提交事物
+        sqlSession.commit();
+        System.out.println(students.toString());
+        System.out.println("影响的行数：" + result);
     }
 
     @After

@@ -24,8 +24,42 @@
          即：此处因该是 Students，而不是 List
      ${}: 表示拼接sql串，将接收到的参数的内容不加任何修饰拼接到sql中
           注意： 此时需要注意写法时固定的，${value}，只能写value
+          使用 ${} 拼接sql，会引起 sql 注入！不建议使用
     -->
     <select id="getStudentsByName" parameterType="java.lang.String" resultType="com.markliu.mybatis.domain.Students">
         SELECT * FROM students WHERE name LIKE '%${value}%'
     </select>
+
+    <!-- 插入信息
+     parameterType：指定输入参数的类型为POJO
+     #{} 指定POJO的属性名接收到对象的属性值，mybatis根据OGNL获取对象的属性值
+     -->
+
+    <insert id="insertStudents" parameterType="com.markliu.mybatis.domain.Students">
+
+        <!-- 将插入数据的主键返回，填充到刚插入的对象的属性中
+            SELECT LAST_INSERT_ID()：得到刚INSERT进记录的主键值，只适用与自增主键；
+            keyProperty：将查询到主键值设置到 insert的parameterType指定的对象的哪个属性；
+            order：指定 SELECT LAST_INSERT_ID() 执行的顺序（相对于insert语句的执行顺序）；
+            resultType：指定 SELECT LAST_INSERT_ID() 返回的结果类型；
+         -->
+        <!-- 自增主键的返回，使用 LAST_INSERT_ID() 函数
+             非自增主键的返回，使用mysql的uuid()函数生成主键，需要修改表中id字段类型为string，长度设置成35位。
+        -->
+        <selectKey keyProperty="stud_id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO students(stud_id, name, email, dob) VALUES (#{stud_id}, #{name}, #{email}, #{dob})
+    </insert>
+
+    <!-- 删除用户 -->
+    <delete id="deleteStudentsById" parameterType="java.lang.Integer">
+        DELETE FROM students WHERE stud_id = #{stud_id}
+    </delete>
+
+    <!-- 删除用户 -->
+    <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.Students">
+        UPDATE students SET email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
+    </delete>
 </mapper>
