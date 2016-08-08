@@ -27,6 +27,8 @@
     <mappers>
         <!-- maven 的目录结构下的resources为classpath -->
         <mapper resource="config/sqlmap/Students.xml" />
+
+        <mapper resource="config/mapper/StudentsMapper.xml" />
     </mappers>
 
 </configuration>

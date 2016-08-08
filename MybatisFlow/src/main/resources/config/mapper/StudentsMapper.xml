@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，其作用是对sql进行分类化管理，理解sql隔离
+ 注意使用namespace代理方法开发，namespace有特殊的含义，namespace与mapper接口的全类名相等
+ -->
+<mapper namespace="com.markliu.mybatis.mapper.StudentsMapper">
+    <!-- 在该 namespace 下配置 sql 语句 -->
+
+    <!-- 通过select执行数据库查询，
+     id：表示映射文件中的sql，将sql语句封装到mappedStatement对象中，所以将id称为 Statement 的 id
+     parameterType：表示输入参数的类型，此处根据 id 查询，所以为int类型
+     resultType：指定返回的结果类型,注意指定的时 sql 返回的单条记录所专程java对象的类型 !
+     #{stud_id}：#{}表示占位符，stud_id表述接受输入的参数，参数名为stud_id
+     -->
+    <select id="getStudentsById" parameterType="int" resultType="com.markliu.mybatis.domain.Students">
+        SELECT * FROM students WHERE stud_id = #{stud_id}
+    </select>
+
+    <!-- 根据用户名称模糊查询用户信息的sql语句 -->
+    <!-- 注意 resultType 指定的时 sql 返回的单条记录所专程java对象的类型 !
+         即：此处因该是 Students，而不是 List
+     ${}: 表示拼接sql串，将接收到的参数的内容不加任何修饰拼接到sql中
+          注意： 此时需要注意写法时固定的，${value}，只能写value
+          使用 ${} 拼接sql，会引起 sql 注入！不建议使用
+    -->
+    <select id="getStudentsByName" parameterType="java.lang.String" resultType="com.markliu.mybatis.domain.Students">
+        SELECT * FROM students WHERE name LIKE '%${value}%'
+    </select>
+
+    <!-- 插入信息
+     parameterType：指定输入参数的类型为POJO
+     #{} 指定POJO的属性名接收到对象的属性值，mybatis根据OGNL获取对象的属性值
+     -->
+
+    <insert id="insertStudents" parameterType="com.markliu.mybatis.domain.Students">
+
+        <!-- 将插入数据的主键返回，填充到刚插入的对象的属性中
+            SELECT LAST_INSERT_ID()：得到刚INSERT进记录的主键值，只适用与自增主键；
+            keyProperty：将查询到主键值设置到 insert的parameterType指定的对象的哪个属性；
+            order：指定 SELECT LAST_INSERT_ID() 执行的顺序（相对于insert语句的执行顺序）；
+            resultType：指定 SELECT LAST_INSERT_ID() 返回的结果类型；
+         -->
+        <!-- 自增主键的返回，使用 LAST_INSERT_ID() 函数
+             非自增主键的返回，使用mysql的uuid()函数生成主键，需要修改表中id字段类型为string，长度设置成35位。
+        -->
+        <selectKey keyProperty="stud_id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO students(stud_id, name, email, dob) VALUES (#{stud_id}, #{name}, #{email}, #{dob})
+    </insert>
+
+    <!-- 删除用户 -->
+    <delete id="deleteStudentsById" parameterType="java.lang.Integer">
+        DELETE FROM students WHERE stud_id = #{stud_id}
+    </delete>
+
+    <!-- 删除用户 -->
+    <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.Students">
+        UPDATE students SET name = #{name}, email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
+    </delete>
+</mapper>
