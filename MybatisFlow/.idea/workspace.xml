@@ -22,7 +22,60 @@
     <favorites_list name="MybatisFlow" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="Students.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/sqlmap/Students.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+              <folding>
+                <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+                <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+                <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+                <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+                <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+                <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+                <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentsDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/dao/StudentsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentsDaoTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Students.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/Students.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,7 +100,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/config/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/helloworld.sh" />
         <option value="$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/dao/StudentsDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/dao/impl/StudentsDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/sqlmap/Students.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java" />
       </list>
     </option>
   </component>
@@ -130,6 +186,188 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sqlmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MybatisFlow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -149,14 +387,14 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StudentsTest.testUpdateStudents">
-    <configuration default="false" name="StudentsTest.testGetStudentsByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.StudentsDaoTest.deleteStudentsById">
+    <configuration default="false" name="StudentsDaoTest.testFindStudentsById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MybatisFlow" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsTest" />
-      <option name="METHOD_NAME" value="testGetStudentsByName" />
+      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsDaoTest" />
+      <option name="METHOD_NAME" value="testFindStudentsById" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -170,12 +408,32 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="StudentsTest.testInsertStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StudentsDaoTest.testFindAllStudentsLikeName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MybatisFlow" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsTest" />
+      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsDaoTest" />
+      <option name="METHOD_NAME" value="testFindAllStudentsLikeName" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="StudentsDaoTest.testInsertStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MybatisFlow" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
+      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsDaoTest" />
       <option name="METHOD_NAME" value="testInsertStudents" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -190,33 +448,13 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="StudentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StudentsDaoTest.testUpdateStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MybatisFlow" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="StudentsTest.testDeleteStudentsById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MybatisFlow" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsTest" />
-      <option name="METHOD_NAME" value="testDeleteStudentsById" />
+      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsDaoTest" />
+      <option name="METHOD_NAME" value="testUpdateStudents" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -230,13 +468,13 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="StudentsTest.testUpdateStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StudentsDaoTest.deleteStudentsById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MybatisFlow" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.markliu.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsTest" />
-      <option name="METHOD_NAME" value="testUpdateStudents" />
+      <option name="MAIN_CLASS_NAME" value="com.markliu.mybatis.StudentsDaoTest" />
+      <option name="METHOD_NAME" value="deleteStudentsById" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -481,19 +719,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.StudentsTest.testGetStudentsByName" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.StudentsTest.testInsertStudents" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StudentsTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StudentsTest.testDeleteStudentsById" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.StudentsTest.testUpdateStudents" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testFindStudentsById" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testFindAllStudentsLikeName" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testInsertStudents" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testUpdateStudents" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.deleteStudentsById" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.StudentsTest.testUpdateStudents" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StudentsTest.testDeleteStudentsById" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.StudentsTest.testInsertStudents" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.StudentsTest.testGetStudentsByName" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.StudentsTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.deleteStudentsById" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testUpdateStudents" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testInsertStudents" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testFindAllStudentsLikeName" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StudentsDaoTest.testFindStudentsById" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -524,30 +762,31 @@
       <workItem from="1470383407776" duration="259000" />
       <workItem from="1470572896569" duration="2945000" />
       <workItem from="1470639148555" duration="364000" />
+      <workItem from="1470639972188" duration="2794000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StudentsTest_testDeleteStudentsById - 2016.08.07 at 20h 57m 46s.xml">
-      <configuration name="StudentsTest.testDeleteStudentsById" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_deleteStudentsById - 2016.08.08 at 15h 55m 54s.xml">
+      <configuration name="StudentsDaoTest.deleteStudentsById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testInsertStudents - 2016.08.05 at 09h 34m 14s.xml">
-      <configuration name="StudentsTest.testInsertStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testFindAllStudentsLikeName - 2016.08.08 at 15h 32m 43s.xml">
+      <configuration name="StudentsDaoTest.testFindAllStudentsLikeName" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testInsertStudents - 2016.08.05 at 09h 41m 37s.xml">
-      <configuration name="StudentsTest.testInsertStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testFindStudentsById - 2016.08.08 at 15h 29m 40s.xml">
+      <configuration name="StudentsDaoTest.testFindStudentsById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testInsertStudents - 2016.08.05 at 09h 45m 45s.xml">
-      <configuration name="StudentsTest.testInsertStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testFindStudentsById - 2016.08.08 at 15h 30m 32s.xml">
+      <configuration name="StudentsDaoTest.testFindStudentsById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testInsertStudents - 2016.08.05 at 11h 03m 36s.xml">
-      <configuration name="StudentsTest.testInsertStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testInsertStudents - 2016.08.08 at 15h 51m 44s.xml">
+      <configuration name="StudentsDaoTest.testInsertStudents" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testInsertStudents - 2016.08.05 at 11h 04m 10s.xml">
-      <configuration name="StudentsTest.testInsertStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testUpdateStudents - 2016.08.08 at 15h 53m 36s.xml">
+      <configuration name="StudentsDaoTest.testUpdateStudents" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsTest_testUpdateStudents - 2016.08.07 at 21h 07m 04s.xml">
-      <configuration name="StudentsTest.testUpdateStudents" configurationId="JUnit" />
+    <history-entry file="StudentsDaoTest_testUpdateStudents - 2016.08.08 at 15h 55m 03s.xml">
+      <configuration name="StudentsDaoTest.testUpdateStudents" configurationId="JUnit" />
     </history-entry>
     <history-entry file="StudentsTest_testUpdateStudents - 2016.08.07 at 21h 09m 36s.xml">
       <configuration name="StudentsTest.testUpdateStudents" configurationId="JUnit" />
@@ -560,33 +799,33 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31632000" />
+    <option name="totallyTimeSpent" value="34426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5648148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10493827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45833334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06287879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7052469" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41975307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44907406" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27469134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41975307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -635,13 +874,13 @@
         <state relative-caret-position="1344">
           <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
           <folding>
-            <marker date="1470575477104" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="737:779" ph="select * fro... Blog" />
-            <marker date="1470575477104" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
-            <marker date="1470575477104" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
-            <marker date="1470575477104" expanded="true" signature="2241:2288" ph="DELETE FROM " />
-            <marker date="1470575477104" expanded="true" signature="2415:2490" ph="UPDATE stude... " />
+            <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+            <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+            <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+            <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+            <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
           </folding>
         </state>
       </provider>
@@ -675,13 +914,13 @@
         <state relative-caret-position="735">
           <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
           <folding>
-            <marker date="1470575477104" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="737:779" ph="select * fro... Blog" />
-            <marker date="1470575477104" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
-            <marker date="1470575477104" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
-            <marker date="1470575477104" expanded="true" signature="2241:2288" ph="DELETE FROM " />
-            <marker date="1470575477104" expanded="true" signature="2415:2490" ph="UPDATE stude... " />
+            <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+            <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+            <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+            <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+            <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
           </folding>
         </state>
       </provider>
@@ -718,13 +957,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1470575477104" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="737:779" ph="select * fro... Blog" />
-            <marker date="1470575477104" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
-            <marker date="1470575477104" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
-            <marker date="1470575477104" expanded="true" signature="2241:2288" ph="DELETE FROM " />
-            <marker date="1470575477104" expanded="true" signature="2415:2490" ph="UPDATE stude... " />
+            <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+            <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+            <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+            <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+            <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
           </folding>
         </state>
       </provider>
@@ -760,13 +999,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1470575477104" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="737:779" ph="select * fro... Blog" />
-            <marker date="1470575477104" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
-            <marker date="1470575477104" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
-            <marker date="1470575477104" expanded="true" signature="2241:2288" ph="DELETE FROM " />
-            <marker date="1470575477104" expanded="true" signature="2415:2490" ph="UPDATE stude... " />
+            <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+            <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+            <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+            <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+            <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
           </folding>
         </state>
       </provider>
@@ -892,14 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/Students.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test.sh" />
     <entry file="file://$PROJECT_DIR$/src/main/java/helloworld.sh" />
     <entry file="file://$PROJECT_DIR$/../../../../../../Study/Software Information/Shell/helloworld.sh">
@@ -962,28 +1193,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/Students.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="105">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/dao/impl/StudentsDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/sqlmap/Students.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        <state relative-caret-position="365">
+          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
           <folding>
-            <marker date="1470575477104" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="737:779" ph="select * fro... Blog" />
-            <marker date="1470575477104" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
-            <marker date="1470575477104" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
-            <marker date="1470575477104" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
-            <marker date="1470575477104" expanded="true" signature="2241:2288" ph="DELETE FROM " />
-            <marker date="1470575477104" expanded="true" signature="2415:2490" ph="UPDATE stude... " />
+            <marker date="1470642882865" expanded="true" signature="730:779" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="737:779" ph="select * fro... Blog" />
+            <marker date="1470642882865" expanded="true" signature="1180:1231" ph="SELECT * FRO... students" />
+            <marker date="1470642882865" expanded="true" signature="2034:2128" ph="INSERT INTO students... " />
+            <marker date="1470642882865" expanded="true" signature="2054:2128" ph="(stud_id, na... " />
+            <marker date="1470642882865" expanded="true" signature="2241:2288" ph="DELETE FROM " />
+            <marker date="1470642882865" expanded="true" signature="2415:2506" ph="UPDATE stude... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/dao/StudentsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

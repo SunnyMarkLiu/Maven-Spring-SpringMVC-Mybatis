@@ -60,6 +60,6 @@
 
     <!-- 删除用户 -->
     <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.Students">
-        UPDATE students SET email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
+        UPDATE students SET name = #{name}, email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
     </delete>
 </mapper>
