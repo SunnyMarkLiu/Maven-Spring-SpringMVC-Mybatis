@@ -3,6 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <!-- 加载数据库配置文件 -->
+    <properties resource="config/db.properties" />
+
+    <!-- SqlMapConfig.xml 全局定义 mapper.xml 的 statement 的 paramterType 和 resultType 的别名 -->
+    <typeAliases>
+        <!-- 定义单个的别名 -->
+        <!--<typeAlias type="com.markliu.mybatis.domain.Students" alias="Students" />-->
+
+        <!-- 批量定义别名
+         指定包名，mybatis 自动扫描包中的pojo类。自动定义别名为类名（补区分大小写）
+         -->
+        <package name="com.markliu.mybatis.domain" />
+    </typeAliases>
+
     <!-- environment 元素体中包含了事务管理和连接池的配置 -->
     <!-- 注意和Spring整合之后，environment 配置将废除 -->
     <environments default="mybatis-environment">
@@ -12,13 +27,13 @@
             <!-- 数据库连接池，此处由mybatis管理，和spring整合之后由第三方管理如C3P0 -->
             <dataSource type="POOLED">
                 <!--${driver}-->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${jdbc.driver}"/>
                 <!--${url}-->
-                <property name="url" value="jdbc:mysql://localhost:3306/springmvc_mybatis?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="url" value="${jdbc.url}"/>
                 <!--${username}-->
-                <property name="username" value="root"/>
+                <property name="username" value="${jdbc.username}"/>
                 <!--${password}-->
-                <property name="password" value="992101"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
