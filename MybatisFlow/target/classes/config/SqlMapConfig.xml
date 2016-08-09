@@ -10,12 +10,14 @@
     <!-- SqlMapConfig.xml 全局定义 mapper.xml 的 statement 的 paramterType 和 resultType 的别名 -->
     <typeAliases>
         <!-- 定义单个的别名 -->
-        <!--<typeAlias type="com.markliu.mybatis.domain.Students" alias="Students" />-->
+        <!--<typeAlias type="com.markliu.mybatis.domain.po.Students" alias="Students" />-->
 
         <!-- 批量定义别名
          指定包名，mybatis 自动扫描包中的pojo类。自动定义别名为类名（补区分大小写）
+         使用别名配置后，mapper.xml 中的 statement 的paramterType 和 resultType可以写别名写全称:
+         Students 或 com.markliu.mybatis.domain.po.Students
          -->
-        <package name="com.markliu.mybatis.domain" />
+        <package name="com.markliu.mybatis.domain.po" />
     </typeAliases>
 
     <!-- environment 元素体中包含了事务管理和连接池的配置 -->

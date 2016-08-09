@@ -1,4 +1,4 @@
-package com.markliu.mybatis.domain;
+package com.markliu.mybatis.domain.po;
 
 import java.util.Date;
 

@@ -15,7 +15,7 @@
      resultType：指定返回的结果类型,注意指定的时 sql 返回的单条记录所专程java对象的类型 !
      #{stud_id}：#{}表示占位符，stud_id表述接受输入的参数，参数名为stud_id
      -->
-    <select id="getStudentsById" parameterType="int" resultType="com.markliu.mybatis.domain.Students">
+    <select id="getStudentsById" parameterType="int" resultType="com.markliu.mybatis.domain.po.Students">
         SELECT * FROM students WHERE stud_id = #{stud_id}
     </select>
 
@@ -26,7 +26,7 @@
           注意： 此时需要注意写法时固定的，${value}，只能写value
           使用 ${} 拼接sql，会引起 sql 注入！不建议使用
     -->
-    <select id="getStudentsByName" parameterType="java.lang.String" resultType="com.markliu.mybatis.domain.Students">
+    <select id="getStudentsByName" parameterType="java.lang.String" resultType="com.markliu.mybatis.domain.po.Students">
         SELECT * FROM students WHERE name LIKE '%${value}%'
     </select>
 
@@ -35,7 +35,7 @@
      #{} 指定POJO的属性名接收到对象的属性值，mybatis根据OGNL获取对象的属性值
      -->
 
-    <insert id="insertStudents" parameterType="com.markliu.mybatis.domain.Students">
+    <insert id="insertStudents" parameterType="com.markliu.mybatis.domain.po.Students">
 
         <!-- 将插入数据的主键返回，填充到刚插入的对象的属性中
             SELECT LAST_INSERT_ID()：得到刚INSERT进记录的主键值，只适用与自增主键；
@@ -59,7 +59,7 @@
     </delete>
 
     <!-- 删除用户 -->
-    <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.Students">
+    <delete id="updateStudents" parameterType="com.markliu.mybatis.domain.po.Students">
         UPDATE students SET name = #{name}, email = #{email}, dob=#{dob} WHERE stud_id = #{stud_id}
     </delete>
 </mapper>

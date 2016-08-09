@@ -1,6 +1,6 @@
 package com.markliu.mybatis;
 
-import com.markliu.mybatis.domain.Students;
+import com.markliu.mybatis.domain.po.Students;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

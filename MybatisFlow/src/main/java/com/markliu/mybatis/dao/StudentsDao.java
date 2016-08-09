@@ -1,6 +1,6 @@
 package com.markliu.mybatis.dao;
 
-import com.markliu.mybatis.domain.Students;
+import com.markliu.mybatis.domain.po.Students;
 
 import java.util.List;
 

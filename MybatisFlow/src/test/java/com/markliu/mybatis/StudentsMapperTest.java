@@ -1,8 +1,8 @@
 package com.markliu.mybatis;
 
-import com.markliu.mybatis.dao.StudentsDao;
-import com.markliu.mybatis.dao.impl.StudentsDaoImpl;
-import com.markliu.mybatis.domain.Students;
+import com.markliu.mybatis.domain.po.Students;
+import com.markliu.mybatis.domain.po.custom.StudentsCustom;
+import com.markliu.mybatis.domain.vo.StudentsQueryVo;
 import com.markliu.mybatis.mapper.StudentsMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -107,5 +107,24 @@ public class StudentsMapperTest {
         sqlSession.commit();
         // 关闭资源
         sqlSession.close();
+    }
+
+    @Test
+    public void testFindStudentsList() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        StudentsMapper studentsMapper = sqlSession.getMapper(StudentsMapper.class);
+
+        StudentsQueryVo studentsQueryVo = new StudentsQueryVo();
+        // 添加查询条件
+        StudentsCustom queryStudentsCustom = new StudentsCustom();
+        queryStudentsCustom.setName("MarkLiu");
+        queryStudentsCustom.setEmail("SunnyMarkLiu@163.com");
+        studentsQueryVo.setStudentsCustom(queryStudentsCustom);
+
+        List<StudentsCustom> studentsCustomList = studentsMapper.findStudentsList(studentsQueryVo);
+        // 关闭资源
+        sqlSession.close();
+
+        System.out.println(studentsCustomList.toString());
     }
 }

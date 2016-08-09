@@ -1,6 +1,8 @@
 package com.markliu.mybatis.mapper;
 
-import com.markliu.mybatis.domain.Students;
+import com.markliu.mybatis.domain.po.Students;
+import com.markliu.mybatis.domain.po.custom.StudentsCustom;
+import com.markliu.mybatis.domain.vo.StudentsQueryVo;
 
 import java.util.List;
 
@@ -20,4 +22,6 @@ public interface StudentsMapper {
     void deleteStudentsById(int id) throws Exception;
 
     void updateStudents(Students students) throws Exception;
+
+    List<StudentsCustom> findStudentsList(StudentsQueryVo studentsQueryVo) throws  Exception;
 }

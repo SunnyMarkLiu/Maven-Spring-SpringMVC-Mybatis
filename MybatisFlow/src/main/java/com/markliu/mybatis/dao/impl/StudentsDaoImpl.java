@@ -1,7 +1,7 @@
 package com.markliu.mybatis.dao.impl;
 
 import com.markliu.mybatis.dao.StudentsDao;
-import com.markliu.mybatis.domain.Students;
+import com.markliu.mybatis.domain.po.Students;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
