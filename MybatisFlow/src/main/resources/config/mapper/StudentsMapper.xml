@@ -86,21 +86,34 @@
         SELECT stud_id stud_id_, dob birthday FROM students WHERE name=#{studentsCustom.name} AND email LIKE '%${studentsCustom.email}%'
    </select>
 
+
+    <!-- 定义动态 sql 片段
+        经验：
+        > 针对单表来定义动态sql片段
+        > 不要包含 where 标签，这样可以最大化重用 sql 片段
+    -->
+    <sql id="select_students_where">
+        <if test="studentsCustom != null">
+            <if test="studentsCustom.name != null and studentsCustom.name != ''">
+                name=#{studentsCustom.name}
+            </if>
+            <if test="studentsCustom.email != null and studentsCustom.email != ''">
+                and email LIKE '%${studentsCustom.email}%'
+            </if>
+        </if>
+    </sql>
+
     <!-- 测试动态 sql -->
     <select id="findStudentsListDynamicSql" parameterType="com.markliu.mybatis.domain.vo.StudentsQueryVo"
             resultType="com.markliu.mybatis.domain.po.custom.StudentsCustom">
         SELECT * FROM students
 
+        <!-- where 可以自动去掉 sql 中多余的 and -->
         <where>
-            <if test="studentsCustom != null">
-                <if test="studentsCustom.name != null and studentsCustom.name != ''">
-                    name=#{studentsCustom.name}
-                </if>
-                <if test="studentsCustom.email != null and studentsCustom.email != ''">
-                    and email LIKE '%${studentsCustom.email}%'
-                </if>
-            </if>
+            <!-- 应用 sql 片段 -->
+            <include refid="select_students_where" />
         </where>
 
     </select>
+
 </mapper>
