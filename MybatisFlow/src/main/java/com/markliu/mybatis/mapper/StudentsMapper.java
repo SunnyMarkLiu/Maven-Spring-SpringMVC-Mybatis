@@ -24,4 +24,6 @@ public interface StudentsMapper {
     void updateStudents(Students students) throws Exception;
 
     List<StudentsCustom> findStudentsList(StudentsQueryVo studentsQueryVo) throws  Exception;
+
+    List<StudentsCustom> findStudentsListResultMap(StudentsQueryVo studentsQueryVo) throws  Exception;
 }

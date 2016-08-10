@@ -69,4 +69,19 @@
             resultType="com.markliu.mybatis.domain.po.custom.StudentsCustom">
         SELECT * FROM students WHERE name=#{studentsCustom.name} AND email LIKE '%${studentsCustom.email}%'
     </select>
+
+    <!-- 定义resultMap
+        id: resultMap 的唯一标识符；
+        type：输出所要映射的类型，可以使用别名;
+    -->
+    <resultMap id="studentsResultMap" type="com.markliu.mybatis.domain.po.custom.StudentsCustom">
+        <!-- 主键的映射 -->
+        <id column="stud_id_" property="stud_id"/>
+        <result column="birthday" property="dob" />
+    </resultMap>
+    <!-- 测试 resultMap 输出映射结合复杂类型的查询条件 -->
+    <select id="findStudentsListResultMap" parameterType="com.markliu.mybatis.domain.vo.StudentsQueryVo"
+            resultMap="studentsResultMap">
+        SELECT stud_id stud_id_, dob birthday FROM students WHERE name=#{studentsCustom.name} AND email LIKE '%${studentsCustom.email}%'
+   </select>
 </mapper>

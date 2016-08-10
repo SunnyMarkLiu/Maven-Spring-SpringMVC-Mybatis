@@ -127,4 +127,25 @@ public class StudentsMapperTest {
 
         System.out.println(studentsCustomList.toString());
     }
+
+    @Test
+    public void testFindStudentsListResultMap() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        StudentsMapper studentsMapper = sqlSession.getMapper(StudentsMapper.class);
+
+        // 构造复杂查询条件
+        StudentsQueryVo studentsQueryVo = new StudentsQueryVo();
+        StudentsCustom studentsCustom = new StudentsCustom();
+        studentsCustom.setName("MarkLiu");
+        studentsCustom.setEmail("@163.com");
+        studentsQueryVo.setStudentsCustom(studentsCustom);
+
+        List<StudentsCustom> studentsCustomList =
+                studentsMapper.findStudentsListResultMap(studentsQueryVo);
+
+        // 关闭资源
+        sqlSession.close();
+
+        System.out.println(studentsCustomList.toString());
+    }
 }

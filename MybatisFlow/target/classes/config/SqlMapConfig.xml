@@ -18,6 +18,7 @@
          Students 或 com.markliu.mybatis.domain.po.Students
          -->
         <package name="com.markliu.mybatis.domain.po" />
+        <package name="com.markliu.mybatis.domain.vo" />
     </typeAliases>
 
     <!-- environment 元素体中包含了事务管理和连接池的配置 -->
