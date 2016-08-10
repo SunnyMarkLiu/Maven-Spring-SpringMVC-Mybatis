@@ -100,6 +100,15 @@
             <if test="studentsCustom.email != null and studentsCustom.email != ''">
                 and email LIKE '%${studentsCustom.email}%'
             </if>
+            <if test="ids != null and ids.size() > 0" >
+                <!-- 两种方法：
+                    SELECT * FROM USER WHERE ... and (id=1 OR id=10 OR id=16)
+                    SELECT * FROM USER WHERE ... and id IN(1,10,16)
+                 -->
+                <foreach collection="ids" item="student_id" open="and (" close=")" separator="OR">
+                    stud_id = #{student_id}
+                </foreach>
+            </if>
         </if>
     </sql>
 

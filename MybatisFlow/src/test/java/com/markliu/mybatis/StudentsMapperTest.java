@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -159,8 +160,14 @@ public class StudentsMapperTest {
         StudentsCustom studentsCustom = new StudentsCustom();
 
         // 配置文件使用动态sql
-        //studentsCustom.setName("MarkLiu");
-        //studentsCustom.setEmail("@163.com");
+        studentsCustom.setName("MarkLiu");
+        studentsCustom.setEmail("@163.com");
+
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(6);
+        ids.add(7);
+        studentsQueryVo.setIds(ids);
+
         studentsQueryVo.setStudentsCustom(studentsCustom);
 
         List<StudentsCustom> studentsCustomList =

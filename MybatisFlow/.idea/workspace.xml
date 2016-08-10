@@ -31,12 +31,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SqlMapConfig.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/SqlMapConfig.xml">
+      <file leaf-file-name="StudentsMapperTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="182">
+              <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5580#5589#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,15 +47,15 @@
       <file leaf-file-name="StudentsMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/config/mapper/StudentsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
               <folding>
-                <marker date="1470836806698" expanded="true" signature="758:816" ph="SELECT * FRO... students" />
-                <marker date="1470836806698" expanded="true" signature="1220:1271" ph="SELECT * FRO... students" />
-                <marker date="1470836806698" expanded="true" signature="2284:2331" ph="DELETE FROM " />
-                <marker date="1470836806698" expanded="true" signature="2461:2552" ph="UPDATE stude... " />
-                <marker date="1470836806698" expanded="true" signature="2777:2876" ph="SELECT * FRO... students" />
-                <marker date="1470836806698" expanded="true" signature="3422:3550" ph="SELECT stud_... students" />
+                <marker date="1470838251060" expanded="true" signature="758:816" ph="SELECT * FRO... students" />
+                <marker date="1470838251060" expanded="true" signature="1220:1271" ph="SELECT * FRO... students" />
+                <marker date="1470838251060" expanded="true" signature="2284:2331" ph="DELETE FROM " />
+                <marker date="1470838251060" expanded="true" signature="2461:2552" ph="UPDATE stude... " />
+                <marker date="1470838251060" expanded="true" signature="2777:2876" ph="SELECT * FRO... students" />
+                <marker date="1470838251060" expanded="true" signature="3422:3550" ph="SELECT stud_... students" />
               </folding>
             </state>
           </provider>
@@ -89,12 +92,12 @@
         <option value="$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/po/custom/StudentsCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/vo/StudentsQueryVo.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/SqlMapConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/po/Students.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/mapper/StudentsMapper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsMapperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/vo/StudentsQueryVo.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/mapper/StudentsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsMapperTest.java" />
       </list>
     </option>
   </component>
@@ -828,7 +831,7 @@
       <workItem from="1470639148555" duration="364000" />
       <workItem from="1470639972188" duration="8796000" />
       <workItem from="1470723329108" duration="6234000" />
-      <workItem from="1470833342834" duration="3332000" />
+      <workItem from="1470833342834" duration="4821000" />
     </task>
     <servers />
   </component>
@@ -845,42 +848,42 @@
     <history-entry file="StudentsMapperTest_testFindStudentsListDynamicSql - 2016.08.10 at 21h 46m 54s.xml">
       <configuration name="StudentsMapperTest.testFindStudentsListDynamicSql" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="StudentsMapperTest_testFindStudentsListDynamicSql - 2016.08.10 at 22h 11m 08s.xml">
+      <configuration name="StudentsMapperTest.testFindStudentsListDynamicSql" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentsMapperTest_testFindStudentsListDynamicSql - 2016.08.10 at 22h 12m 35s.xml">
+      <configuration name="StudentsMapperTest.testFindStudentsListDynamicSql" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentsMapperTest_testFindStudentsListDynamicSql - 2016.08.10 at 22h 13m 00s.xml">
+      <configuration name="StudentsMapperTest.testFindStudentsListDynamicSql" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="StudentsMapperTest_testFindStudentsListResultMap - 2016.08.10 at 21h 07m 42s.xml">
       <configuration name="StudentsMapperTest.testFindStudentsListResultMap" configurationId="JUnit" />
     </history-entry>
     <history-entry file="StudentsMapperTest_testFindStudentsListResultMap - 2016.08.10 at 21h 09m 41s.xml">
       <configuration name="StudentsMapperTest.testFindStudentsListResultMap" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentsMapperTest_testInsertStudents - 2016.08.08 at 16h 52m 33s.xml">
-      <configuration name="StudentsMapperTest.testInsertStudents" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentsMapperTest_testInsertStudents - 2016.08.08 at 16h 52m 57s.xml">
-      <configuration name="StudentsMapperTest.testInsertStudents" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentsMapperTest_testUpdateStudents - 2016.08.08 at 16h 53m 28s.xml">
-      <configuration name="StudentsMapperTest.testUpdateStudents" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="StudentsMapperTest_testUpdateStudents - 2016.08.08 at 16h 53m 45s.xml">
       <configuration name="StudentsMapperTest.testUpdateStudents" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49994000" />
+    <option name="totallyTimeSpent" value="51483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6759259" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6697531" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06790123" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18672839" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45833334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27045456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18787879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1254,16 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1294,14 +1287,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/vo/StudentsQueryVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/mapper/StudentsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -1310,35 +1295,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsMapperTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/SqlMapConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+        <state relative-caret-position="152">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/markliu/mybatis/domain/vo/StudentsQueryVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/SqlMapConfig.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="-574">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/markliu/mybatis/StudentsMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5580#5589#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/mapper/StudentsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="250">
+          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
           <folding>
-            <marker date="1470836806698" expanded="true" signature="758:816" ph="SELECT * FRO... students" />
-            <marker date="1470836806698" expanded="true" signature="1220:1271" ph="SELECT * FRO... students" />
-            <marker date="1470836806698" expanded="true" signature="2284:2331" ph="DELETE FROM " />
-            <marker date="1470836806698" expanded="true" signature="2461:2552" ph="UPDATE stude... " />
-            <marker date="1470836806698" expanded="true" signature="2777:2876" ph="SELECT * FRO... students" />
-            <marker date="1470836806698" expanded="true" signature="3422:3550" ph="SELECT stud_... students" />
+            <marker date="1470838251060" expanded="true" signature="758:816" ph="SELECT * FRO... students" />
+            <marker date="1470838251060" expanded="true" signature="1220:1271" ph="SELECT * FRO... students" />
+            <marker date="1470838251060" expanded="true" signature="2284:2331" ph="DELETE FROM " />
+            <marker date="1470838251060" expanded="true" signature="2461:2552" ph="UPDATE stude... " />
+            <marker date="1470838251060" expanded="true" signature="2777:2876" ph="SELECT * FRO... students" />
+            <marker date="1470838251060" expanded="true" signature="3422:3550" ph="SELECT stud_... students" />
           </folding>
         </state>
       </provider>
