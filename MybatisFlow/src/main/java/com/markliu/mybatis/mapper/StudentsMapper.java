@@ -26,4 +26,7 @@ public interface StudentsMapper {
     List<StudentsCustom> findStudentsList(StudentsQueryVo studentsQueryVo) throws  Exception;
 
     List<StudentsCustom> findStudentsListResultMap(StudentsQueryVo studentsQueryVo) throws  Exception;
+
+    List<StudentsCustom> findStudentsListDynamicSql(StudentsQueryVo studentsQueryVo) throws  Exception;
+
 }

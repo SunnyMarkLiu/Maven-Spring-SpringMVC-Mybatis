@@ -148,4 +148,26 @@ public class StudentsMapperTest {
 
         System.out.println(studentsCustomList.toString());
     }
+
+    @Test
+    public void testFindStudentsListDynamicSql() throws  Exception{
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        StudentsMapper studentsMapper = sqlSession.getMapper(StudentsMapper.class);
+        // 构造复杂查询条件
+        StudentsQueryVo studentsQueryVo = new StudentsQueryVo();
+        StudentsCustom studentsCustom = new StudentsCustom();
+
+        // 配置文件使用动态sql
+        //studentsCustom.setName("MarkLiu");
+        //studentsCustom.setEmail("@163.com");
+        studentsQueryVo.setStudentsCustom(studentsCustom);
+
+        List<StudentsCustom> studentsCustomList =
+                studentsMapper.findStudentsListDynamicSql(studentsQueryVo);
+
+        sqlSession.close();
+
+        System.out.println(studentsCustomList.toString());
+    }
 }

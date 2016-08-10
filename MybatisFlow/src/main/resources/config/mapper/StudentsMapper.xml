@@ -79,9 +79,28 @@
         <id column="stud_id_" property="stud_id"/>
         <result column="birthday" property="dob" />
     </resultMap>
+
     <!-- 测试 resultMap 输出映射结合复杂类型的查询条件 -->
     <select id="findStudentsListResultMap" parameterType="com.markliu.mybatis.domain.vo.StudentsQueryVo"
             resultMap="studentsResultMap">
         SELECT stud_id stud_id_, dob birthday FROM students WHERE name=#{studentsCustom.name} AND email LIKE '%${studentsCustom.email}%'
    </select>
+
+    <!-- 测试动态 sql -->
+    <select id="findStudentsListDynamicSql" parameterType="com.markliu.mybatis.domain.vo.StudentsQueryVo"
+            resultType="com.markliu.mybatis.domain.po.custom.StudentsCustom">
+        SELECT * FROM students
+
+        <where>
+            <if test="studentsCustom != null">
+                <if test="studentsCustom.name != null and studentsCustom.name != ''">
+                    name=#{studentsCustom.name}
+                </if>
+                <if test="studentsCustom.email != null and studentsCustom.email != ''">
+                    and email LIKE '%${studentsCustom.email}%'
+                </if>
+            </if>
+        </where>
+
+    </select>
 </mapper>
