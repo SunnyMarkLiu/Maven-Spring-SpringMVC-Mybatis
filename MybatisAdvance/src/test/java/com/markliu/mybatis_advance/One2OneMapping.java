@@ -1,5 +1,6 @@
 package com.markliu.mybatis_advance;
 
+import com.markliu.mybatis_advance.domain.po.Orders;
 import com.markliu.mybatis_advance.domain.vo.OrdersCustom;
 import com.markliu.mybatis_advance.mapper.OrdersMapper;
 import org.apache.ibatis.io.Resources;
@@ -49,6 +50,18 @@ public class One2OneMapping {
 
 		for (OrdersCustom ordersCustom : ordersCustomList) {
 			System.out.println(ordersCustom.toString());
+		}
+		sqlSession.close();
+	}
+
+	@Test
+	public void testOne2OneMappingResultMap() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		OrdersMapper ordersMapper = sqlSession.getMapper(OrdersMapper.class);
+		List<Orders> ordersList = ordersMapper.selectOrdersAndUserByResultMap();
+
+		for (Orders orders : ordersList) {
+			System.out.println(orders.toString());
 		}
 		sqlSession.close();
 	}

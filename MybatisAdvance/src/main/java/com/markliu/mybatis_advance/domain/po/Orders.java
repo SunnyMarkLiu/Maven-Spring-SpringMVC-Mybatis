@@ -10,6 +10,9 @@ public class Orders {
     private Date createtime;
     private String note;
 
+	// 订单关联的用户信息
+	private User user;
+
 	public Integer getId() {
 		return id;
 	}
@@ -50,6 +53,14 @@ public class Orders {
 		this.note = note;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Orders{" +
@@ -58,6 +69,7 @@ public class Orders {
 				", number='" + number + '\'' +
 				", createtime=" + createtime +
 				", note='" + note + '\'' +
+				", user=" + user.toString() +
 				'}';
 	}
 }

@@ -13,4 +13,5 @@ public interface OrdersMapper {
 
 	void insertOrders(Orders orders) throws Exception;
 	List<OrdersCustom> selectOrdersAndUser() throws Exception;
+	List<Orders> selectOrdersAndUserByResultMap() throws Exception;
 }

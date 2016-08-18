@@ -14,7 +14,33 @@
     </insert>
 
     <!-- 查询订单信息，关联查询创建订单的用户信息 -->
-    <select id="selectOrdersAndUser" parameterType="int" resultType="com.markliu.mybatis_advance.domain.vo.OrdersCustom">
+    <select id="selectOrdersAndUser" resultType="com.markliu.mybatis_advance.domain.vo.OrdersCustom">
+        SELECT orders.*, user.username, user.address
+          FROM orders, user
+            WHERE orders.id = user.id
+    </select>
+
+    <resultMap id="OrdersAndUserResultMap" type="com.markliu.mybatis_advance.domain.po.Orders" >
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="number" property="number" />
+        <result column="createtime" property="createtime" />
+        <result column="note" property="note" />
+
+        <!-- 配置映射的关联的用户信息 -->
+        <!-- association：用于映射关联查询单个对象的信息
+        property：要将关联查询的用户信息映射到Orders中哪个属性
+         -->
+        <association property="user" javaType="com.markliu.mybatis_advance.domain.po.User" >
+            <id column="id" property="id" />
+            <result column="username" property="username" />
+            <result column="sex" property="sex" />
+            <result column="birthday" property="birthday" />
+            <result column="address" property="address" />
+        </association>
+    </resultMap>
+
+    <select id="selectOrdersAndUserByResultMap" resultMap="OrdersAndUserResultMap">
         SELECT orders.*, user.username, user.address
           FROM orders, user
             WHERE orders.id = user.id
