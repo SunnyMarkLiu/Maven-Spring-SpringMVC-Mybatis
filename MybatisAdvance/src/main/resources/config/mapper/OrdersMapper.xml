@@ -13,4 +13,10 @@
         INSERT INTO orders(user_id, number, createtime, note) VALUES (#{userId}, #{number}, #{createtime}, #{note})
     </insert>
 
+    <!-- 查询订单信息，关联查询创建订单的用户信息 -->
+    <select id="selectOrdersAndUser" parameterType="int" resultType="com.markliu.mybatis_advance.domain.vo.OrdersCustom">
+        SELECT orders.*, user.username, user.address
+          FROM orders, user
+            WHERE orders.id = user.id
+    </select>
 </mapper>
