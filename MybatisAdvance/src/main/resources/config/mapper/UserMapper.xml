@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，其作用是对sql进行分类化管理，理解sql隔离
+ 注意使用namespace代理方法开发，namespace有特殊的含义，namespace与mapper接口的全类名相等
+ -->
+<mapper namespace="com.markliu.mybatis_advance.mapper.UserMapper">
+
+    <!-- 插入测试数据 -->
+    <insert id="insertUser" parameterType="User" >
+        INSERT INTO user(username, sex, birthday, address) VALUES (#{username}, #{sex}, #{birthday}, #{address})
+    </insert>
+
+    <select id="selectUserById" parameterType="int" resultType="User" >
+        SELECT * FROM user WHERE user.id = #{id}
+    </select>
+</mapper>
