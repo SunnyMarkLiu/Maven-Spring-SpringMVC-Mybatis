@@ -16,4 +16,74 @@
     <select id="selectUserById" parameterType="int" resultType="User" >
         SELECT * FROM user WHERE user.id = #{id}
     </select>
+
+    <resultMap id="UserAndItemsResultMap" type="com.markliu.mybatis_advance.domain.po.User">
+        <!-- 用户信息 -->
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="address" property="address"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+
+        <!-- 订单信息
+		     一个用户对应多个订单，使用collection映射
+		 -->
+        <collection property="ordersList" ofType="com.markliu.mybatis_advance.domain.po.Orders">
+            <id column="id" property="id"/>
+            <result column="user_id" property="userId" />
+            <result column="number" property="number" />
+            <result column="createtime" property="createtime" />
+            <result column="note" property="note" />
+
+            <!-- 用户的订单信息所包含的订单详细信息
+		        一个订单包括 多个明细，使用collection映射
+		    -->
+            <collection property="orderdetails" ofType="com.markliu.mybatis_advance.domain.po.Orderdetail">
+                <id column="order_detail_id" property="id"/>
+                <result column="orders_id" property="ordersId"/>
+                <result column="items_id" property="itemsId"/>
+                <result column="itemsNum" property="itemsNum"/>
+                <!-- 商品信息
+                     一个订单明细对应一个商品
+                -->
+                <association property="items" javaType="com.markliu.mybatis_advance.domain.po.Items">
+                    <id column="id" property="id"/>
+                    <result column="name" property="name" />
+                    <result column="picture" property="picture" />
+                    <result column="createtime" property="createtime" />
+                    <result column="detail" property="detail" />
+                    <result column="price" property="price" />
+                </association>
+            </collection>
+        </collection>
+
+        <!-- 订单详细信息所对应的商品信息 -->
+    </resultMap>
+    <!-- 多对多查询综合案例：查询用户信息及用户购买的商品信息，注意用户和商品并没有数据库间的联系只有业务间的联系 -->
+    <select id="selectUserAndItems" resultMap="UserAndItemsResultMap">
+        SELECT
+          orders.*,
+          user.username,
+          user.birthday,
+          user.address,
+          user.sex,
+          order_detail.id order_detail_id,
+          order_detail.orders_id,
+          order_detail.items_id,
+          order_detail.itemsNum,
+          items.name,
+          items.price,
+          items.picture,
+          items.createtime,
+          items.detail
+        FROM
+          orders,
+          user,
+          order_detail,
+          items
+        WHERE
+          orders.id = user.id AND
+          order_detail.orders_id = orders.id AND
+          order_detail.items_id = items.id
+    </select>
 </mapper>

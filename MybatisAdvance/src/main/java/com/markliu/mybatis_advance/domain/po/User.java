@@ -2,6 +2,7 @@ package com.markliu.mybatis_advance.domain.po;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class User implements Serializable {
 	
@@ -11,6 +12,9 @@ public class User implements Serializable {
 	private String sex;// 性别
 	private Date birthday;// 生日
 	private String address;// 地址
+
+	// 用户的订单信息
+	private List<Orders> ordersList;
 
 	public User() {
 	}
@@ -60,6 +64,14 @@ public class User implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public List<Orders> getOrdersList() {
+		return ordersList;
+	}
+
+	public void setOrdersList(List<Orders> ordersList) {
+		this.ordersList = ordersList;
 	}
 
 	@Override
