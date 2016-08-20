@@ -16,4 +16,5 @@ public interface OrdersMapper {
 	List<OrdersCustom> selectOrdersAndUser() throws Exception;
 	List<Orders> selectOrdersAndUserByResultMap() throws Exception;
 	List<Orders> selectselectOrdersUserAndOrderDetailsByResultMap() throws Exception;
+	List<Orders> selectOrdersAndUserLazyLoading() throws Exception;
 }

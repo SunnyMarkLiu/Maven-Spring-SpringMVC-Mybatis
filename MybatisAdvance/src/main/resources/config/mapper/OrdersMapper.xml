@@ -93,4 +93,28 @@
         WHERE
           orders.id = user.id AND order_detail.orders_id = orders.id
     </select>
+
+    <resultMap id="OrdersAndUserLazyLoadingResultMap" type="com.markliu.mybatis_advance.domain.po.Orders" >
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="number" property="number" />
+        <result column="createtime" property="createtime" />
+        <result column="note" property="note" />
+
+        <!-- 实现对用户信息进行延迟加载
+            select：指定延迟加载需要执行的statement的id（是根据user_id查询用户信息的statement）
+                要使用userMapper.xml中findUserById完成根据用户id(user_id)用户信息的查询，
+                如果findUserById不在本mapper中需要前边加namespace
+            column：订单信息中关联用户信息查询的列，是user_id
+         -->
+        <association property="user" javaType="com.markliu.mybatis_advance.domain.po.User"
+                     select="com.markliu.mybatis_advance.mapper.UserMapper.selectUserById"
+                     column="user_id">
+        </association>
+    </resultMap>
+
+    <select id="selectOrdersAndUserLazyLoading" resultMap="OrdersAndUserLazyLoadingResultMap">
+        select * FROM orders
+    </select>
+
 </mapper>
