@@ -40,9 +40,56 @@
         </association>
     </resultMap>
 
+    <!-- 查询订单信息，关联查询用户信息和订单详细信息 -->
+    <resultMap id="OrdersUserAndOrderDetailsByResultMap"
+               type="com.markliu.mybatis_advance.domain.po.Orders" >
+        <!-- 查询订单信息 -->
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="number" property="number" />
+        <result column="createtime" property="createtime" />
+        <result column="note" property="note" />
+
+        <!-- 关联查询用户信息 -->
+        <association property="user" javaType="com.markliu.mybatis_advance.domain.po.User" >
+            <id column="id" property="id" />
+            <result column="username" property="username" />
+            <result column="sex" property="sex" />
+            <result column="birthday" property="birthday" />
+            <result column="address" property="address" />
+        </association>
+
+        <!-- 关联查询订单详细信息
+        ofType： 指定List的范型的类型
+        -->
+        <collection property="orderdetails" ofType="com.markliu.mybatis_advance.domain.po.Orderdetail">
+            <id column="order_detail_id" property="id"/>
+            <result column="orders_id" property="ordersId"/>
+            <result column="items_id" property="itemsId"/>
+            <result column="itemsNum" property="itemsNum"/>
+        </collection>
+    </resultMap>
+
     <select id="selectOrdersAndUserByResultMap" resultMap="OrdersAndUserResultMap">
         SELECT orders.*, user.username, user.address
           FROM orders, user
             WHERE orders.id = user.id
+    </select>
+
+    <select id="selectselectOrdersUserAndOrderDetailsByResultMap" resultMap="OrdersUserAndOrderDetailsByResultMap">
+        SELECT
+          orders.*,
+          user.username,
+          user.address,
+          order_detail.id order_detail_id,
+          order_detail.orders_id,
+          order_detail.items_id,
+          order_detail.itemsNum
+        FROM
+          orders,
+          user,
+          order_detail
+        WHERE
+          orders.id = user.id AND order_detail.orders_id = orders.id
     </select>
 </mapper>

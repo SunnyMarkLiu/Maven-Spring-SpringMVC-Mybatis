@@ -1,6 +1,7 @@
 package com.markliu.mybatis_advance.domain.po;
 
 import java.util.Date;
+import java.util.List;
 
 public class Orders {
 
@@ -12,6 +13,9 @@ public class Orders {
 
 	// 订单关联的用户信息
 	private User user;
+
+	// 订单的详细信息列表
+	private List<Orderdetail> orderdetails;
 
 	public Integer getId() {
 		return id;
@@ -61,6 +65,14 @@ public class Orders {
 		this.user = user;
 	}
 
+	public List<Orderdetail> getOrderdetails() {
+		return orderdetails;
+	}
+
+	public void setOrderdetails(List<Orderdetail> orderdetails) {
+		this.orderdetails = orderdetails;
+	}
+
 	@Override
 	public String toString() {
 		return "Orders{" +
@@ -69,7 +81,8 @@ public class Orders {
 				", number='" + number + '\'' +
 				", createtime=" + createtime +
 				", note='" + note + '\'' +
-				", user=" + user.toString() +
+				", user=" + user +
+				", orderdetails=" + orderdetails.toString() +
 				'}';
 	}
 }

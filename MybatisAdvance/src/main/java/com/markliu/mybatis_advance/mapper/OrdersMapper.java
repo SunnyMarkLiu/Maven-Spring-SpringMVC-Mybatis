@@ -1,5 +1,6 @@
 package com.markliu.mybatis_advance.mapper;
 
+import com.markliu.mybatis_advance.domain.po.Orderdetail;
 import com.markliu.mybatis_advance.domain.po.Orders;
 import com.markliu.mybatis_advance.domain.vo.OrdersCustom;
 
@@ -14,4 +15,5 @@ public interface OrdersMapper {
 	void insertOrders(Orders orders) throws Exception;
 	List<OrdersCustom> selectOrdersAndUser() throws Exception;
 	List<Orders> selectOrdersAndUserByResultMap() throws Exception;
+	List<Orders> selectselectOrdersUserAndOrderDetailsByResultMap() throws Exception;
 }
