@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 加载数据库配置文件 -->
+    <properties resource="config/db.properties" />
+
+    <!-- 设置延迟加载 -->
+    <settings>
+        <!--
+         lazyLoadingEnabled：全局性设置懒加载。如果设为‘false’，则所有相关联的都会被初始化加载。
+         aggressiveLazyLoading：当设置为‘true’的时候，懒加载的对象可能被任何懒属性全部加载。否则，每个属性都按需加载。
+         -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <!-- SqlMapConfig.xml 全局定义 mapper.xml 的 statement 的 paramterType 和 resultType 的别名 -->
+    <typeAliases>
+        <!-- 定义单个的别名 -->
+        <!--<typeAlias type="com.markliu.mybatis.domain.po.Students" alias="Students" />-->
+
+        <!-- 批量定义别名
+         指定包名，mybatis 自动扫描包中的pojo类。自动定义别名为类名（补区分大小写）
+         使用别名配置后，mapper.xml 中的 statement 的paramterType 和 resultType可以写别名写全称:
+         Students 或 com.markliu.mybatis.domain.po.Students
+         -->
+        <package name="com.markliu.mybatis_advance.domain.po" />
+    </typeAliases>
+
+    <!-- environment 元素体中包含了事务管理和连接池的配置 -->
+    <!-- 注意和Spring整合之后，environment 配置将废除 -->
+    <environments default="mybatis-environment">
+        <environment id="mybatis-environment">
+            <!-- 使用JDBC的事物管理，由mybatis管理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接池，此处由mybatis管理，和spring整合之后由第三方管理如C3P0 -->
+            <dataSource type="POOLED">
+                <!--${driver}-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--${url}-->
+                <property name="url" value="${jdbc.url}"/>
+                <!--${username}-->
+                <property name="username" value="${jdbc.username}"/>
+                <!--${password}-->
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- 批量加载mapper -->
+        <mapper resource="config/mapper/UserMapper.xml" />
+        <mapper resource="config/mapper/ItemsMapper.xml" />
+        <mapper resource="config/mapper/OrdersMapper.xml" />
+        <mapper resource="config/mapper/OrderdetailMapper.xml" />
+    </mappers>
+
+</configuration>
