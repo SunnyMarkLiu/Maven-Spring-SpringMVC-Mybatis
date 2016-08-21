@@ -177,4 +177,30 @@ public class StudentsMapperTest {
 
         System.out.println(studentsCustomList.toString());
     }
+
+	/**
+	 * 测试一级缓存
+	 * @throws Exception
+	 */
+	@Test
+    public void testFirstLavelCache() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        StudentsMapper studentsMapper = sqlSession.getMapper(StudentsMapper.class);
+        Students students = studentsMapper.getStudentsById(2);
+		System.out.println(students + students.toString());
+
+		// 如果中间进行了update、insert、delete操作，提交事物 commit 之后会清空缓存
+		// sqlSession.clearCache(); // 清空缓存
+		students.setName("LiuQing");
+		studentsMapper.updateStudents(students);
+		sqlSession.commit();
+
+		Students students2 = studentsMapper.getStudentsById(2);
+		System.out.println(students2 + students2.toString());
+
+		System.out.println(students == students2);	// 一级缓存有效时，输出 true
+
+        // 关闭资源
+        sqlSession.close();
+    }
 }
