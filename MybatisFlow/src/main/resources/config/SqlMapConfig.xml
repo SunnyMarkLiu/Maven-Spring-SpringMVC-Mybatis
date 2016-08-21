@@ -6,6 +6,15 @@
 
     <!-- 加载数据库配置文件 -->
     <properties resource="config/db.properties" />
+    <settings>
+        <!-- 开启二级缓存
+         mybaits的二级缓存是mapper范围级别，除了在SqlMapConfig.xml设置二级缓存的总开关，
+         还要在具体的mapper.xml中开启二级缓存。
+         在核心配置文件SqlMapConfig.xml中加入：
+         <setting name="cacheEnabled" value="true"/>
+         -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
 
     <!-- SqlMapConfig.xml 全局定义 mapper.xml 的 statement 的 paramterType 和 resultType 的别名 -->
     <typeAliases>

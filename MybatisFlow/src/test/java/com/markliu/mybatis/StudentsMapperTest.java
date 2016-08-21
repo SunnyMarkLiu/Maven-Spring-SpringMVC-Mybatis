@@ -203,4 +203,36 @@ public class StudentsMapperTest {
         // 关闭资源
         sqlSession.close();
     }
+
+	/**
+	 * 测试二级缓存
+	 * 需要缓存的对象需要实现序列化接口，约为缓存的数据不一定缓存在内存当中。
+	 * @throws Exception
+	 */
+	@Test
+	public void testSecondLavelCache() throws Exception {
+		SqlSession sqlSession1 = sqlSessionFactory.openSession();
+		SqlSession sqlSession2 = sqlSessionFactory.openSession();
+		SqlSession sqlSession3 = sqlSessionFactory.openSession();
+
+		StudentsMapper studentsMapper = sqlSession1.getMapper(StudentsMapper.class);
+		Students students = studentsMapper.getStudentsById(2);
+		System.out.println(students.toString());
+		sqlSession1.close();
+
+		StudentsMapper studentsMapper3 = sqlSession3.getMapper(StudentsMapper.class);
+		Students students3 = studentsMapper3.getStudentsById(2);
+		students3.setName("SunnyMarkLiu");
+		studentsMapper3.updateStudents(students3);
+		// 需要 commit 提交操作，才能清空二级缓存的数据
+		sqlSession3.commit();
+		sqlSession3.close();
+
+		StudentsMapper studentsMapper2 = sqlSession2.getMapper(StudentsMapper.class);
+		Students students2 = studentsMapper2.getStudentsById(2);
+		System.out.println(students2.toString());
+		// 虽然没有发出 sql，从缓存中获取的数据，可仍然输出 false？
+		System.out.println(students == students2);
+		sqlSession2.close();
+	}
 }

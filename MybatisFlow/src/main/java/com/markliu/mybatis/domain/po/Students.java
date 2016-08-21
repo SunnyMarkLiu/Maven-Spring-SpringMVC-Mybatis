@@ -1,12 +1,13 @@
 package com.markliu.mybatis.domain.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Author: markliu
  * Time  : 16-8-4 下午2:32
  */
-public class Students {
+public class Students implements Serializable{
 
     private int stud_id;
     private String name;

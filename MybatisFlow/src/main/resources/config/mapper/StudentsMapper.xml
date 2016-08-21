@@ -7,6 +7,9 @@
  注意使用namespace代理方法开发，namespace有特殊的含义，namespace与mapper接口的全类名相等
  -->
 <mapper namespace="com.markliu.mybatis.mapper.StudentsMapper">
+
+    <!-- 在该 mapper 下开启二级缓存 -->
+    <cache />
     <!-- 在该 namespace 下配置 sql 语句 -->
 
     <!-- 通过select执行数据库查询，
