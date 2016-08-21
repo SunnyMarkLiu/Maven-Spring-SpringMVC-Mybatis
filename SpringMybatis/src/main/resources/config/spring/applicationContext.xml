@@ -30,4 +30,8 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!-- 原始 Dao 方式 -->
+    <bean id="studentsDao" class="com.markliu.springmybatis.dao.impl.StudentsDaoImpl" >
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>

@@ -166,5 +166,75 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!-- 原始 Dao 方式 -->
+    <bean id="studentsDao" class="com.markliu.springmybatis.dao.impl.StudentsDaoImpl" >
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>
 ```
+
+## 5. 开发原始 Dao，并在 applicationContext 中配置 bean
+```
+public interface StudentsDao {
+    Students findStudentsById(Integer id) throws Exception;
+}
+
+/**
+ * 原始 Dao 方式开发，注意可通过继承 SqlSessionDaoSupport，该类中封装了 sqlSession,
+ * 提供了 setSqlSessionFactory 方法，所以只需要配置 sessionFactory，即可实现注入
+ * Author: markliu
+ * Time  : 16-8-8 下午3:07
+ */
+public class StudentsDaoImpl extends SqlSessionDaoSupport implements StudentsDao {
+
+	public Students findStudentsById(Integer id) throws Exception {
+
+		SqlSession sqlSession = this.getSqlSession();
+		String statement = "com.markliu.springmybatis.mapper.StudentsMapper.getStudentsById";
+		Students students = sqlSession.selectOne(statement, id);
+		// java.lang.UnsupportedOperationException:
+		// Manual close is not allowed over a Spring managed SqlSession
+		// sqlSession.close();
+		return students;
+	}
+
+}
+```
+```
+<!-- 原始 Dao 方式 -->
+<bean id="studentsDao" class="com.markliu.springmybatis.dao.impl.StudentsDaoImpl" >
+    <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+```
+
+## 6. 测试代码
+```
+public class BasicDaoTest {
+
+	// 加载 log4j 配置文件
+	static {
+		try {
+			String resource = "config/log4j.properties";
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			PropertyConfigurator.configure(inputStream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private ApplicationContext applicationContext;
+
+	@Before
+	public void setApplicationContext() {
+		applicationContext = new ClassPathXmlApplicationContext("classpath:config/spring/applicationContext.xml");
+	}
+
+	@Test
+	public void testFindStudentsById() throws Exception {
+		StudentsDao studentsDao = (StudentsDao) applicationContext.getBean("studentsDao");
+		Students students = studentsDao.findStudentsById(2);
+		System.out.println(students.toString());
+	}
+}
+```
+

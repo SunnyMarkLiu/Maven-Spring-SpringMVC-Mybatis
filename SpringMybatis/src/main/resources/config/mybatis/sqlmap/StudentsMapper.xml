@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.markliu.springmybatis.mapper.StudentsMapper">
+
+    <!-- 在该 mapper 下开启二级缓存 -->
+    <cache />
+    <!-- 在该 namespace 下配置 sql 语句 -->
+
+    <!-- 通过select执行数据库查询，
+     id：表示映射文件中的sql，将sql语句封装到mappedStatement对象中，所以将id称为 Statement 的 id
+     parameterType：表示输入参数的类型，此处根据 id 查询，所以为int类型
+     resultType：指定返回的结果类型,注意指定的时 sql 返回的单条记录所专程java对象的类型 !
+     #{stud_id}：#{}表示占位符，stud_id表述接受输入的参数，参数名为stud_id
+     -->
+    <select id="getStudentsById" parameterType="int" resultType="com.markliu.springmybatis.domain.po.Students">
+        SELECT * FROM students WHERE students.stud_id = #{stud_id}
+    </select>
+
+</mapper>
