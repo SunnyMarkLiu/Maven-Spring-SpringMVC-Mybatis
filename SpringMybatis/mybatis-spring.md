@@ -130,7 +130,7 @@
 ```
 
 ## 3. 创建基本的目录结构
-![项目基本目录结构](http://img.blog.csdn.net/20160821182302920)
+![项目基本目录结构](https://camo.githubusercontent.com/e696f05a72a20d64e15279bc163e182afd630ba3/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630383231313832333032393230)
 
 ## 4. applicationContext.xml中配置 SqlSessionFactory 和 DataSource
 ```
