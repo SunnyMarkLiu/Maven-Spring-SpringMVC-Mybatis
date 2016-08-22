@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-	<!-- 引入数据库配置文件 -->
-	<context:property-placeholder location="classpath:config/db.properties" />
+    <!-- 引入数据库配置文件 -->
+    <context:property-placeholder location="classpath:config/db.properties"/>
 
-	<!-- 配置C3P0 数据源 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="user" value="${jdbc.user}" />
-		<property name="password" value="${jdbc.password}" />
-		<property name="driverClass" value="${jdbc.driver}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
-		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
-	</bean>
+    <!-- 配置C3P0 数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+    </bean>
 
-	<!-- 配置 SqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 配置 SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 加载mybatis的配置文件 -->
-        <property name="configLocation" value="classpath:config/mybatis/SqlMapConfig.xml" />
+        <property name="configLocation" value="classpath:config/mybatis/SqlMapConfig.xml"/>
         <!-- 加载数据源 -->
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
+        <!--&lt;!&ndash; mapper 的映射文件 &ndash;&gt;-->
+        <!--<property name="mapperLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:com/markliu/springmybatis/mapper/*Mapper.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
 
     <!-- 原始 Dao 方式 -->
-    <bean id="studentsDao" class="com.markliu.springmybatis.dao.impl.StudentsDaoImpl" >
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    <bean id="studentsDao" class="com.markliu.springmybatis.dao.impl.StudentsDaoImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 通过MapperFactoryBean创建代理对象
+     查看源代码，MapperFactoryBean<T> extends SqlSessionDaoSupport，所以需要传入 sqlSessionFactory;
+     mapperInterface: 指定代理对象所要实现的接口
+     -->
+    <bean id="studentsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.markliu.springmybatis.mapper.StudentsMapper"/>
     </bean>
 </beans>
