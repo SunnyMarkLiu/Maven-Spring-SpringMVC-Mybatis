@@ -6,7 +6,7 @@
 
     <mappers>
         <!--<mapper resource="config/mybatis/sqlmap/StudentsMapper.xml" />-->
-        <mapper resource="config/mybatis/mapper/StudentsMapper.xml" />
+        <!--<mapper resource="config/mybatis/mapper/StudentsMapper.xml" />-->
         <!-- 批量扫描mapper -->
         <!--<package name="com.markliu.springmybatis.mapper" />-->
     </mappers>
