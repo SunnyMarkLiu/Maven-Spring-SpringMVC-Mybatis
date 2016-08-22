@@ -172,8 +172,9 @@
     </bean>
 </beans>
 ```
-
-## 5. 开发原始 Dao，并在 applicationContext 中配置 bean
+## 5. 原始 Dao 和 Mapper 代理两种开发模式
+### 5.1 原始 Dao 开发模式
+#### 5.1.1 开发原始 Dao，并在 applicationContext 中配置 bean
 ```
 public interface StudentsDao {
     Students findStudentsById(Integer id) throws Exception;
@@ -207,7 +208,52 @@ public class StudentsDaoImpl extends SqlSessionDaoSupport implements StudentsDao
 </bean>
 ```
 
-## 6. 测试代码
+### 5.2 Mapper 代理开发模式
+#### 5.2.1 创建 Mapper 接口和 mapper.xml 配置文件
+```
+public interface StudentsMapper {
+
+    // mapper 接口中的方法名与 mapper.xml 配置文件中 statement 定义的 id 相等
+    Students getStudentsById(int id) throws Exception;
+}
+```
+```
+<mapper namespace="com.markliu.springmybatis.mapper.StudentsMapper">
+
+    <select id="getStudentsById" parameterType="int" resultType="com.markliu.springmybatis.domain.po.Students">
+        SELECT * FROM students WHERE students.stud_id = #{stud_id}
+    </select>
+
+</mapper>
+```
+#### 5.2.2 applicationContext.xml 中配置 MapperFactoryBean
+##### 5.2.2.1 通过MapperFactoryBean创建代理对象。
+```
+    <!-- 通过MapperFactoryBean创建代理对象
+     查看源代码，MapperFactoryBean<T> extends SqlSessionDaoSupport，所以需要传入 sqlSessionFactory;
+     mapperInterface: 指定代理对象所要实现的接口
+     -->
+    <bean id="studentsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.markliu.springmybatis.mapper.StudentsMapper"/>
+    </bean>
+```
+注意：此种方法存在如下缺陷，当 Mapper 较多时，需要配置多个不同的 MapperFactoryBean，较为繁琐；
+可采用自动包扫描的方式。
+##### 5.2.2.2 通过MapperScannerConfigurer进行mapper扫描（建议使用）
+```
+    <!-- 通过MapperScannerConfigurer进行mapper扫描（建议使用）
+     mapper 批量扫描，从 mapper 包中扫描出 mapper 接口，自动创建代理对象，并在 spring 容器中注册名陈为类名首字母小写。
+     遵循的规范：将 mapper.java 和 mapper.xml 映射文件名陈一致，且在同一个目录
+     -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定扫描的包，如果存在多个包使用(逗号,)分割 -->
+        <property name="basePackage" value="com.markliu.springmybatis.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+```
+
+## 6 测试代码
 ```
 public class BasicDaoTest {
 
@@ -237,4 +283,3 @@ public class BasicDaoTest {
 	}
 }
 ```
-
