@@ -283,6 +283,7 @@ public interface ItemsCustomMapper {
 }
 
 ```
+
 ### 2.3 整合 Mybatis 和 SpringMVC：整合 service 层
 #### 2.3.1 定义 service 接口
 ```
@@ -303,6 +304,7 @@ public interface ItemsService {
 }
 
 ```
+
 #### 2.3.2 定义 service 接口的实现类
 ```
 package com.markliu.ssm.service.impl;
@@ -335,6 +337,7 @@ public class ItemsServiceImpl implements ItemsService {
 }
 
 ```
+
 #### 2.3.3 service 层定义事物管理 applicationContext-transaction.xml
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -381,4 +384,57 @@ public class ItemsServiceImpl implements ItemsService {
     </aop:config>
 
 </beans>
+```
+
+### 2.3 整合 Mybatis 和 SpringMVC：整合 controller 层
+#### 2.3.1 springmvc-dispatcherservlet.xml
+创建springmvc.xml文件，配置处理器映射器、适配器、视图解析器。
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 配置扫描 springmvc 的 controller 和 service 的包 -->
+    <context:component-scan base-package="com.markliu.ssm.controller" />
+    <context:component-scan base-package="com.markliu.ssm.service" />
+    <mvc:annotation-driven />
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
+```
+
+#### 2.3.2 在 web.xml 中配置前端控制器
+```
+    <servlet>
+        <servlet-name>springmvc-dispatcherservlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:config/spring/springmvc-dispatcherservlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springmvc-dispatcherservlet</servlet-name>
+        <!-- url-pattern 的三种配置方式：
+        第一种：*.action ： 访问.action结尾的资源时，由 DispatcherServlet 解析
+        第二种：/        ： 访问所有资源都由 DispatcherServlet 解析，对于html、css、js、image等静态资源，需要配置不让 DispatcherServlet 解析
+        第三种：/*       ： 注意这种方式错误，因为使用这种配置方式，最终咬转发到一个jsp页面时，仍然会由 DispatcherServlet 解析 jsp 地址，
+                          不能根据jsp页面找到处理的handler，会报错。
+         -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 ```
