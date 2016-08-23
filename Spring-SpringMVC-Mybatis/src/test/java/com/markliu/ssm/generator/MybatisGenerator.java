@@ -23,7 +23,7 @@ public class MybatisGenerator {
 	// 加载 log4j 配置文件
 	static {
 		try {
-			String resource = "config/log4j.properties";
+			String resource = "log4j.properties";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			PropertyConfigurator.configure(inputStream);
 		} catch (IOException e) {
