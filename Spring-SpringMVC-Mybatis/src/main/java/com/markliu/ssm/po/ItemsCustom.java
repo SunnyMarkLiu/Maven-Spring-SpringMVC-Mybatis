@@ -6,4 +6,9 @@ package com.markliu.ssm.po;
  * Time  : 16-8-23 下午1:57
  */
 public class ItemsCustom extends Items {
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 }

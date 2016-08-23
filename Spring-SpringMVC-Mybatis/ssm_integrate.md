@@ -144,6 +144,13 @@
             <version>1.2.2</version>
         </dependency>
 
+        <!-- jstl 标签库 -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        
         <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -170,7 +177,7 @@ jdbc.maxPoolSize=10
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        PUBLIC "-//config.mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
@@ -183,13 +190,21 @@ jdbc.maxPoolSize=10
     </typeAliases>
 
     <!-- 配置 mapper
-     由于使用的是在 spring 和 mybatis 的整合包中配置的批量扫描 mapper，
+     由于使用的是在 spring 和 config.mybatis 的整合包中配置的批量扫描 mapper，
      所以此处不需要配置了。但需要遵循一定的规则：mapper.java 和 mapper.xml 同名且在同一个目录下。
      <mappers>
      </mappers>
     -->
-
+    <mappers>
+        <!-- maven 的目录结构下的resources为classpath -->
+        <mapper resource="config/mybatis/mapper/ItemsCustomMapper.xml" />
+        <mapper resource="config/mybatis/mapper/ItemsMapper.xml" />
+        <mapper resource="config/mybatis/mapper/OrderDetailMapper.xml" />
+        <mapper resource="config/mybatis/mapper/OrdersMapper.xml" />
+        <mapper resource="config/mybatis/mapper/UserMapper.xml" />
+    </mappers>
 </configuration>
+
 ```
 
 #### 2.2.3 配置 Spring 的 applicationContext-dao.xml
@@ -438,3 +453,62 @@ public class ItemsServiceImpl implements ItemsService {
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 ```
+
+#### 2.3.3 编写控制器 Handler（Controller）
+```
+@Controller
+@RequestMapping(value = "/items")
+public class ItemsController {
+
+	private ItemsService itemsService;
+
+	@Autowired
+	public void setItemsService(ItemsService itemsService) {
+		this.itemsService = itemsService;
+	}
+
+	private ItemsMapper itemsMapper;
+
+	@SuppressWarnings("SpringJavaAutowiringInspection")
+	@Autowired
+	public void setItemsMapper(ItemsMapper itemsMapper) {
+		this.itemsMapper = itemsMapper;
+	}
+
+	@RequestMapping(value = "/query_items", method = {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView queryItems() throws Exception {
+
+		Items items = itemsMapper.selectByPrimaryKey(1);
+		System.out.println(items.toString());
+
+		List<ItemsCustom> itemsCustomList = itemsService.getAllItemsLikeName(null);
+
+		for (ItemsCustom itemsCustom : itemsCustomList) {
+			System.out.println(itemsCustom.toString());
+		}
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("itemsCustomList", itemsCustomList);
+		modelAndView.setViewName("items/itemsList");
+		return modelAndView;
+	}
+}
+```
+#### 2.3.4 加载spring容器
+将mapper、service、controller加载到spring容器中。
+建议使用通配符加载 spring 容器的配置文件：
+- applicationContext-dao.xml
+- applicationContext-transaction.xml
+- springmvc-dispatcherservlet.xml
+在web.xml中，添加spring容器监听器，加载spring容器。
+```
+    <!-- 加载 spring 容器 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/config/spring/applicationContext-*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+```
+## Done.

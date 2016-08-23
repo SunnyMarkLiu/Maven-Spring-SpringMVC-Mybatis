@@ -6,7 +6,7 @@
     <sql id="ItemsCustom_Query_Where">
       <!-- 使用动态 sql，构造条件查询 -->
         <if test="itemsCustom!=null">
-            <if test="itemsCustom.name!=null and itemsCustom.name!='">
+            <if test="itemsCustom.name!=null and itemsCustom.name!=''">
                 items.name like '%${itemsCustom.name}%'
             </if>
         </if>

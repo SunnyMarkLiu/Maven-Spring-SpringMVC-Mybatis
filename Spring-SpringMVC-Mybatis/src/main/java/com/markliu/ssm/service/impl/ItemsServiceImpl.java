@@ -20,6 +20,7 @@ public class ItemsServiceImpl implements ItemsService {
 	// 所以此处可以通过 Autowired 自动注入
 	private ItemsCustomMapper itemsCustomMapper;
 
+	@SuppressWarnings("SpringJavaAutowiringInspection")
 	@Autowired
 	public void setItemsCustomMapper(ItemsCustomMapper itemsCustomMapper) {
 		this.itemsCustomMapper = itemsCustomMapper;

@@ -18,5 +18,12 @@
      <mappers>
      </mappers>
     -->
-
+    <mappers>
+        <!-- maven 的目录结构下的resources为classpath -->
+        <mapper resource="config/mybatis/mapper/ItemsCustomMapper.xml" />
+        <mapper resource="config/mybatis/mapper/ItemsMapper.xml" />
+        <mapper resource="config/mybatis/mapper/OrderDetailMapper.xml" />
+        <mapper resource="config/mybatis/mapper/OrdersMapper.xml" />
+        <mapper resource="config/mybatis/mapper/UserMapper.xml" />
+    </mappers>
 </configuration>
