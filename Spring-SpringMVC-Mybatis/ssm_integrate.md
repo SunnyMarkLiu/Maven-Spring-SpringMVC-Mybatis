@@ -243,3 +243,43 @@ jdbc.maxPoolSize=10
 ```
 
 #### 2.2.4 逆向工程生成 po 类、 mapper.java 和 mapper.xml (单表的CRUD)
+Mybatis 逆向工程的基本流程参考 [mybatis-generator.md](https://github.com/SunnyMarkLiu/SpringMVC-Mybatis/blob/master/Spring-SpringMVC-Mybatis/mybatis-generator.md)
+
+#### 2.2.5 对于关联查询，需要手动创建 mapper.java 和 mapper.xml
+ItemsCustomMapper.xml:
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.markliu.ssm.mapper.ItemsCustomMapper">
+
+    <!-- 定义条件查询的 sql 片段 -->
+    <sql id="ItemsCustom_Query_Where">
+      <!-- 使用动态 sql，构造条件查询 -->
+        <if test="itemsCustom!=null">
+            <if test="itemsCustom.name!=null and itemsCustom.name!='">
+                items.name like '%${itemsCustom.name}%'
+            </if>
+        </if>
+    </sql>
+    <!-- 商品列表查询 -->
+    <!--
+     parameterType：使用封装复杂查询的 Vo 类，便于后续系统的扩展
+     resultType：使用扩展的 Custom 类，便于后续系统的扩展
+     -->
+    <select id="getAllItemsLikeName"
+            parameterType="com.markliu.ssm.po.ItemsCustomQueryVo"
+            resultType="com.markliu.ssm.po.ItemsCustom">
+        select * from items
+        <where>
+          <include refid="ItemsCustom_Query_Where" />
+        </where>
+    </select>
+</mapper>
+```
+ItemsCustomMapper.java:
+```
+public interface ItemsCustomMapper {
+	List<ItemsCustom> getAllItemsLikeName(ItemsCustomQueryVo itemsCustomQueryVo) throws Exception;
+}
+
+```
