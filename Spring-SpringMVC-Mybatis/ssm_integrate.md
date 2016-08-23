@@ -283,3 +283,102 @@ public interface ItemsCustomMapper {
 }
 
 ```
+### 2.3 整合 Mybatis 和 SpringMVC：整合 service 层
+#### 2.3.1 定义 service 接口
+```
+package com.markliu.ssm.service;
+
+import com.markliu.ssm.po.ItemsCustom;
+import com.markliu.ssm.po.ItemsCustomQueryVo;
+import java.util.List;
+
+public interface ItemsService {
+	/**
+	 * 获取 Items 列表
+	 * @param itemsCustomQueryVo 封装针对 ItemsCustom 的复杂查询的 Vo 类
+	 * @return Items 列表
+	 * @throws Exception database exception
+	 */
+	List<ItemsCustom> getAllItemsLikeName(ItemsCustomQueryVo itemsCustomQueryVo) throws Exception;
+}
+
+```
+#### 2.3.2 定义 service 接口的实现类
+```
+package com.markliu.ssm.service.impl;
+
+import com.markliu.ssm.mapper.ItemsCustomMapper;
+import com.markliu.ssm.po.ItemsCustom;
+import com.markliu.ssm.po.ItemsCustomQueryVo;
+import com.markliu.ssm.service.ItemsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service("itemsService")
+public class ItemsServiceImpl implements ItemsService {
+
+	// 注意 itemsCustomMapper 已通过包自动扫描的方式注入到 IoC 容器中，
+	// 所以此处可以通过 Autowired 自动注入
+	private ItemsCustomMapper itemsCustomMapper;
+
+	@Autowired
+	public void setItemsCustomMapper(ItemsCustomMapper itemsCustomMapper) {
+		this.itemsCustomMapper = itemsCustomMapper;
+	}
+
+	public List<ItemsCustom> getAllItemsLikeName(ItemsCustomQueryVo itemsCustomQueryVo)
+			throws Exception {
+		// 调用 dao 层的ItemsCustomMapper
+		return itemsCustomMapper.getAllItemsLikeName(itemsCustomQueryVo);
+	}
+}
+
+```
+#### 2.3.3 service 层定义事物管理 applicationContext-transaction.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+    <!-- Spring 配置事务配置
+    主要由三个部分组成：DataSource、TransactionManager和 AOP 代理机制。
+    对于 mybatis 的事物控制，spring 采用基于jdbc的事物控制
+     -->
+
+    <!-- 配置 DataSource 由于在 applicationContext-dao.xml 中已经配置过了，
+    所以 dataSource 已经存在与 IoC 容器中-->
+
+    <!-- 配置事物管理器 TransactionManager -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 配置通知 -->
+    <tx:advice id="interceptorAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="insert*" propagation="REQUIRED" />
+
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置切面 aop -->
+    <aop:config>
+        <aop:advisor advice-ref="interceptorAdvice" pointcut="execution(* com.markliu.ssm.service.impl.*.*(..))"/>
+    </aop:config>
+
+</beans>
+```
