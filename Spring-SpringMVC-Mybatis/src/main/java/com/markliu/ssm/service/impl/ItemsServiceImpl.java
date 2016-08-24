@@ -1,11 +1,15 @@
 package com.markliu.ssm.service.impl;
 
 import com.markliu.ssm.mapper.ItemsCustomMapper;
+import com.markliu.ssm.mapper.ItemsMapper;
+import com.markliu.ssm.po.Items;
 import com.markliu.ssm.po.ItemsCustom;
 import com.markliu.ssm.po.ItemsCustomQueryVo;
 import com.markliu.ssm.service.ItemsService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -30,5 +34,37 @@ public class ItemsServiceImpl implements ItemsService {
 			throws Exception {
 		// 调用 dao 层的ItemsCustomMapper
 		return itemsCustomMapper.getAllItemsLikeName(itemsCustomQueryVo);
+	}
+
+	private ItemsMapper itemsMapper;
+
+	@SuppressWarnings("SpringJavaAutowiringInspection")
+	@Autowired
+	public void setItemsMapper(ItemsMapper itemsMapper) {
+		this.itemsMapper = itemsMapper;
+	}
+
+	public ItemsCustom getItemsCustomById(Integer id) throws Exception {
+		// 参数校验
+		Assert.notNull(id, "query id is null");
+
+		Items items = itemsMapper.selectByPrimaryKey(id);
+		// 中间对商品信息进行业务处理
+		// ...
+
+		ItemsCustom itemsCustom = new ItemsCustom();
+		BeanUtils.copyProperties(items, itemsCustom);
+
+		return itemsCustom;
+	}
+
+	public void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception {
+		// 参数校验
+		Assert.notNull(id, "query id is null");
+		Assert.notNull(itemsCustom, "update itemsCustom is null");
+
+		// 防止 itemsCustom 未设置 id
+		itemsCustom.setId(id);
+		itemsMapper.updateByPrimaryKey(itemsCustom);
 	}
 }

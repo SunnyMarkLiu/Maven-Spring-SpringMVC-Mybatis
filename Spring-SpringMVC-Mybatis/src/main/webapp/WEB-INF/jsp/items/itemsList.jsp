@@ -17,6 +17,7 @@
             <td>picture</td>
             <td>createtime</td>
             <td>detail</td>
+            <td>操作</td>
         </tr>
     </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td>${itemsCustom.picture}</td>
                 <td><fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                 <td>${itemsCustom.detail}</td>
+                <td><a href="${pageContext.request.contextPath}/items/edit_items?id=${itemsCustom.id}">修改</a> </td>
             </tr>
         </c:forEach>
     </tbody>

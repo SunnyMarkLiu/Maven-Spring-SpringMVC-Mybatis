@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -38,9 +39,6 @@ public class ItemsController {
 	@RequestMapping(value = "/query_items", method = {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView queryItems() throws Exception {
 
-		Items items = itemsMapper.selectByPrimaryKey(1);
-		System.out.println(items.toString());
-
 		List<ItemsCustom> itemsCustomList = itemsService.getAllItemsLikeName(null);
 
 		for (ItemsCustom itemsCustom : itemsCustomList) {
@@ -50,6 +48,18 @@ public class ItemsController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("itemsCustomList", itemsCustomList);
 		modelAndView.setViewName("items/itemsList");
+		return modelAndView;
+	}
+
+	/**
+	 * 跳转到编辑 Items 的页面
+	 */
+	@RequestMapping(value = "/edit_items")
+	public ModelAndView editItems(@RequestParam Integer id) throws Exception {
+		ItemsCustom itemsCustom = itemsService.getItemsCustomById(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("itemsCustom", itemsCustom);
+		modelAndView.setViewName("items/editItems");
 		return modelAndView;
 	}
 }
