@@ -14,7 +14,20 @@
     <context:component-scan base-package="com.markliu.ssm.controller" />
     <context:component-scan base-package="com.markliu.ssm.service" />
     <!--<context:component-scan base-package="com.markliu.ssm.mapper" />-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- 自定义的转换器的服务 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!-- 自定义的转换器的集合 -->
+        <property name="converters">
+            <set>
+                <!-- 日期类型转换器 -->
+                <bean class="com.markliu.ssm.utils.converter.DateConverter" />
+                <!-- 其他类型转换器 -->
+
+            </set>
+        </property>
+    </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

@@ -28,10 +28,10 @@
             <td>商品图片</td>
             <td><input type="text" name="picture" value="${itemsCustom.picture }"/></td>
         </tr>
-        <%--<tr>--%>
-            <%--<td>生产日期</td>--%>
-            <%--<td><input type="text" name="createtime" value="<fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/></td>--%>
-        <%--</tr>--%>
+        <tr>
+            <td>生产日期</td>
+            <td><input type="text" name="createtime" value="<fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/></td>
+        </tr>
         <tr>
             <td>商品简介</td>
             <td>
