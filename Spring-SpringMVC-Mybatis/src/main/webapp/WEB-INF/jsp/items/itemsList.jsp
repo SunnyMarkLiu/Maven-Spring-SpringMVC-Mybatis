@@ -18,6 +18,7 @@
             <td>createtime</td>
             <td>detail</td>
             <td>操作</td>
+            <td>操作2</td>
         </tr>
     </thead>
         <tbody>
@@ -30,6 +31,7 @@
                 <td><fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                 <td>${itemsCustom.detail}</td>
                 <td><a href="${pageContext.request.contextPath}/items/edit_items?id=${itemsCustom.id}">修改</a> </td>
+                <td><a href="${pageContext.request.contextPath}/items/edit_items2?id=${itemsCustom.id}">修改2</a> </td>
             </tr>
         </c:forEach>
     </tbody>
