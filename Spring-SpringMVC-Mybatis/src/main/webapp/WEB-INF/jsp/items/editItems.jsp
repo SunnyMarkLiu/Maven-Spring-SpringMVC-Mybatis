@@ -12,7 +12,8 @@
 <body>
 <jsp:useBean id="itemsCustom" scope="request" type="com.markliu.ssm.po.ItemsCustom"/>
 
-<form id="itemForm" action="${pageContext.request.contextPath }/items/update_items" method="post">
+<form id="itemForm" action="${pageContext.request.contextPath }/items/update_items"
+      enctype="multipart/form-data" method="post">
     <input type="hidden" name="id" value="${itemsCustom.id }"/>
     修改商品信息：
     <table width="100%" border=1>
@@ -26,7 +27,10 @@
         </tr>
         <tr>
             <td>商品图片</td>
-            <td><input type="text" name="picture" value="${itemsCustom.picture }"/></td>
+            <td>
+                <input type="file" name="pictureMultipartFile" value="上传图片"/>
+            </td>
+
         </tr>
         <tr>
             <td>生产日期</td>

@@ -11,9 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Author: markliu
@@ -91,16 +94,30 @@ public class ItemsController {
 	 * 更新 Items
 	 */
 	@RequestMapping(value = "/update_items")
-	public String updateItems(ItemsCustom itemsCustom) throws Exception {
+	public String updateItems(ItemsCustom itemsCustom, MultipartFile pictureMultipartFile) throws Exception {
 
 		System.out.println("itemsCustom : " + itemsCustom.toString());
+
+		// 获取上传的图片
+		if (pictureMultipartFile != null) {
+
+			// 图片保存的路径
+			String basePath = "/media/markliu/Entertainment/Linux/SoftwareInformation/java/My_IntelliJ_projects/Spring-SpringMVC-Mybatis/src/main/webapp/images/";
+			String fileName = pictureMultipartFile.getOriginalFilename();
+			fileName = UUID.randomUUID() + fileName.substring(fileName.lastIndexOf("."));
+			File destFile = new File(basePath + fileName);
+			// 将图片数据写入磁盘
+			pictureMultipartFile.transferTo(destFile);
+			itemsCustom.setPicture(fileName);
+		}
 		itemsService.updateItems(itemsCustom.getId(), itemsCustom);
+
 		// 服务器内部内部请求转发, 地址栏 url 不变
 		// return "forward:/items/query_items2";
-//		return "forward:query_items2";
+		// return "forward:query_items2";
 
 		// 请求重定向, 地址栏 url 变化
-		 return "redirect:/items/query_items2";
+		return "redirect:/items/query_items2";
 
 	}
 

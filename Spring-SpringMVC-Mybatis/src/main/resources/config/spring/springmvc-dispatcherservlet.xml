@@ -36,4 +36,11 @@
 
     <!-- 配置全局异常处理器 -->
     <bean class="com.markliu.ssm.exception.GlobalItemsExceptionResolver" />
+
+    <!-- 配置文件上传组件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="-1" />
+        <property name="uploadTempDir" value="/WEB-INF/temp" />
+    </bean>
 </beans>
