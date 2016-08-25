@@ -109,4 +109,26 @@ public class ItemsController {
 		}
 		return "forward:/items/query_items";
 	}
+
+	/**
+	 * 查询待批量更新的 Items
+	 */
+	@RequestMapping(value = "/queryUpdateItems", method = {RequestMethod.POST, RequestMethod.GET})
+	public String queryUpdateItems(ItemsCustomQueryVo itemsCustomQueryVo, Model model) throws Exception {
+
+		List<ItemsCustom> itemsCustomList = itemsService.getAllItemsLikeName(itemsCustomQueryVo);
+
+		model.addAttribute("itemsCustomList", itemsCustomList);
+		return "items/updateItemsList";
+	}
+
+	/**
+	 * 批量更新 Items 数据
+	 */
+	@RequestMapping("/batch_update_items")
+	public String batchUpdateItems(ItemsCustomQueryVo itemsCustomQueryVo) throws Exception {
+		// 调用 Service 批量更新 Items
+
+		return "forward:/items/query_items";
+	}
 }
