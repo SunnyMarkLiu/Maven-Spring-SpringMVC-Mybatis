@@ -1,2 +1,2 @@
 # SpringMVC-Mybatis
-BUPT CAD basic SpringMVC and Mybatis Demo
+BUPT-CAD basic Maven + Spring + SpringMVC + Mybatis Demo
