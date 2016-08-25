@@ -3,6 +3,7 @@ package com.markliu.ssm.controller;
 import com.markliu.ssm.mapper.ItemsMapper;
 import com.markliu.ssm.po.Items;
 import com.markliu.ssm.po.ItemsCustom;
+import com.markliu.ssm.po.ItemsCustomQueryVo;
 import com.markliu.ssm.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,9 +39,9 @@ public class ItemsController {
 	}
 
 	@RequestMapping(value = "/query_items", method = {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView queryItems() throws Exception {
+	public ModelAndView queryItems(ItemsCustomQueryVo itemsCustomQueryVo) throws Exception {
 
-		List<ItemsCustom> itemsCustomList = itemsService.getAllItemsLikeName(null);
+		List<ItemsCustom> itemsCustomList = itemsService.getAllItemsLikeName(itemsCustomQueryVo);
 
 		for (ItemsCustom itemsCustom : itemsCustomList) {
 			System.out.println(itemsCustom.toString());
