@@ -100,4 +100,13 @@ public class ItemsController {
 		 return "redirect:/items/query_items2";
 
 	}
+
+	@RequestMapping("/delete_items")
+	public String deleteItems(Integer[] itemsId) throws Exception {
+		// 调用 Service 删除 Items
+		for (Integer id : itemsId) {
+			System.out.println(id);
+		}
+		return "forward:/items/query_items";
+	}
 }

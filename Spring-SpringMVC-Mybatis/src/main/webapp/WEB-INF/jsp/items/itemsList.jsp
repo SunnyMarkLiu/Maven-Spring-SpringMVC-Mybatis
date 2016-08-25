@@ -5,18 +5,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Items List</title>
+    <script type="text/javascript">
+        function queryItems() {
+            document.itemsForm.action = "${pageContext.request.contextPath}/items/query_items";
+            document.itemsForm.submit();
+        }
+        function deleteItems() {
+            document.itemsForm.action = "${pageContext.request.contextPath}/items/delete_items";
+            document.itemsForm.submit();
+        }
+    </script>
 </head>
 <body>
 <jsp:useBean id="itemsCustomList" scope="request" type="java.util.List"/>
 <h1>Items List</h1>
-<form action="${pageContext.request.contextPath}/items/query_items" method="post">
+<form name="itemsForm" method="post">
     <table width="100%" border=1>
         <thead>
         <tr>
-            <td colspan="7"><input name="itemsCustom.name" type="text"/></td>
-            <td><input type="submit" value="查询"/></td>
+            <td colspan="6"><input name="itemsCustom.name" type="text"/></td>
+            <td><input type="button" value="查询" onclick="queryItems()"/></td>
+            <td><input type="button" value="批量删除" onclick="deleteItems()"/></td>
         </tr>
         <tr>
+            <td>选择</td>
             <td>id</td>
             <td>name</td>
             <td>price</td>
@@ -30,6 +42,7 @@
         <tbody>
         <c:forEach items="${itemsCustomList }" var="itemsCustom">
             <tr>
+                <td><input type="checkbox" name="itemsId" value="${itemsCustom.id}"></td>
                 <td>${itemsCustom.id}</td>
                 <td>${itemsCustom.name}</td>
                 <td>${itemsCustom.price}</td>
