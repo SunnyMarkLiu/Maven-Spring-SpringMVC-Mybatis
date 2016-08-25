@@ -34,4 +34,6 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- 配置全局异常处理器 -->
+    <bean class="com.markliu.ssm.exception.GlobalItemsExceptionResolver" />
 </beans>

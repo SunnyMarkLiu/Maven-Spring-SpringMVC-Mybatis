@@ -1,5 +1,6 @@
 package com.markliu.ssm.service.impl;
 
+import com.markliu.ssm.exception.ItemsException;
 import com.markliu.ssm.mapper.ItemsCustomMapper;
 import com.markliu.ssm.mapper.ItemsMapper;
 import com.markliu.ssm.po.Items;
@@ -49,6 +50,11 @@ public class ItemsServiceImpl implements ItemsService {
 		Assert.notNull(id, "query id is null");
 
 		Items items = itemsMapper.selectByPrimaryKey(id);
+
+		if (items == null) {
+			throw new ItemsException("查询的该商品不存在！");
+		}
+
 		// 中间对商品信息进行业务处理
 		// ...
 

@@ -62,6 +62,9 @@ public class ItemsController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("itemsCustom", itemsCustom);
 		modelAndView.setViewName("items/editItems");
+
+		// 测试服务器抛出的非自定义异常
+		// throw new NullPointerException();
 		return modelAndView;
 	}
 
