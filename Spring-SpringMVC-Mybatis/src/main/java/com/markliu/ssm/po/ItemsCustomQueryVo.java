@@ -1,6 +1,7 @@
 package com.markliu.ssm.po;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 封装针对 ItemsCustom 的复杂查询的 Vo 类，偏于系统的扩展
@@ -14,6 +15,17 @@ public class ItemsCustomQueryVo {
 
 	// 数据绑定到 list 集合中
 	private List<ItemsCustom> itemsCustoms;
+
+	// 数据绑定到 map 集合中
+	private Map<String, Object> itemsCustomMap;
+
+	public Map<String, Object> getItemsCustomMap() {
+		return itemsCustomMap;
+	}
+
+	public void setItemsCustomMap(Map<String, Object> itemsCustomMap) {
+		this.itemsCustomMap = itemsCustomMap;
+	}
 
 	public List<ItemsCustom> getItemsCustoms() {
 		return itemsCustoms;

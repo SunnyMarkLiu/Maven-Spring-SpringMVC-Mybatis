@@ -37,6 +37,7 @@
         </tr>
         </thead>
         <tbody>
+        <%-- 数据绑定到 list 集合的测试
         <c:forEach items="${itemsCustomList }" var="itemsCustom" varStatus="status">
             <tr>
                 <td><input type="text" name="itemsCustoms[${status.index}].id" value="${itemsCustom.id}"></td>
@@ -47,6 +48,19 @@
                 <td><input type="text" name="itemsCustoms[${status.index}].detail" value="${itemsCustom.detail}"></td>
             </tr>
         </c:forEach>
+        --%>
+
+        <c:forEach items="${itemsCustomList }" var="itemsCustom">
+            <tr>
+                <td><input type="text" name="itemsCustomMap['id']" value="${itemsCustom.id}"></td>
+                <td><input type="text" name="itemsCustomMap['name']" value="${itemsCustom.name}"></td>
+                <td><input type="text" name="itemsCustomMap['price']" value="${itemsCustom.price}"></td>
+                <td><input type="text" name="itemsCustomMap['picture']" value="${itemsCustom.picture}"></td>
+                <td><input type="text" name="itemsCustomMap['createtime']" value="<fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/>"></td>
+                <td><input type="text" name="itemsCustomMap['detail']" value="${itemsCustom.detail}"></td>
+            </tr>
+        </c:forEach>
+
         </tbody>
     </table>
 </form>
