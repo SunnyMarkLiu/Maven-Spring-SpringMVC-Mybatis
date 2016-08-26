@@ -11,8 +11,8 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 配置扫描 springmvc 的 controller 和 service 的包 -->
-    <context:component-scan base-package="com.markliu.ssm.controller" />
-    <context:component-scan base-package="com.markliu.ssm.service" />
+    <context:component-scan base-package="com.markliu.ssm.controller"/>
+    <context:component-scan base-package="com.markliu.ssm.service"/>
     <!--<context:component-scan base-package="com.markliu.ssm.mapper" />-->
     <mvc:annotation-driven conversion-service="conversionService"/>
 
@@ -22,25 +22,40 @@
         <property name="converters">
             <set>
                 <!-- 日期类型转换器 -->
-                <bean class="com.markliu.ssm.utils.converter.DateConverter" />
+                <bean class="com.markliu.ssm.utils.converter.DateConverter"/>
                 <!-- 其他类型转换器 -->
 
             </set>
         </property>
     </bean>
 
+    <!-- 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+
+        <property name="defaultViews">
+            <list>
+                <!-- JSON View -->
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                </bean>
+            </list>
+        </property>
+        <!--<property name="ignoreAcceptHeader" value="true" />-->
+    </bean>
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp" />
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- 配置全局异常处理器 -->
-    <bean class="com.markliu.ssm.exception.GlobalItemsExceptionResolver" />
+    <bean class="com.markliu.ssm.exception.GlobalItemsExceptionResolver"/>
 
     <!-- 配置文件上传组件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
-        <property name="maxUploadSize" value="-1" />
-        <property name="uploadTempDir" value="/WEB-INF/temp" />
+        <property name="maxUploadSize" value="-1"/>
+        <property name="uploadTempDir" value="/WEB-INF/temp"/>
     </bean>
+
 </beans>
