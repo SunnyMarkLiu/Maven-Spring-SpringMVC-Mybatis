@@ -19,6 +19,11 @@
 <body>
 <jsp:useBean id="itemsCustomList" scope="request" type="java.util.List"/>
 <h1>Items List</h1>
+welcome ${username } !
+<c:if test="${username != null}" >
+    <a href="${pageContext.request.contextPath}/logout">logout</a>
+</c:if>
+
 <form name="itemsForm" method="post">
     <table width="100%" border=1>
         <thead>

@@ -58,4 +58,13 @@
         <property name="uploadTempDir" value="/WEB-INF/temp"/>
     </bean>
 
+    <!-- 配置全局的拦截器 -->
+    <mvc:interceptors>
+        <!-- 配置登录验证拦截器 -->
+        <mvc:interceptor>
+            <!-- path 指定对何种请求的 url 拦截， /** 表示对所有的url及子url进行拦截 -->
+            <mvc:mapping path="/**"/>
+            <bean class="com.markliu.ssm.interceptor.LoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

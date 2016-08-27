@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Json 交互测试</title>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.12.3.js"></script>
     <script type="text/javascript">
         function requestJsonAndResponseJson() {
             $.ajax({
